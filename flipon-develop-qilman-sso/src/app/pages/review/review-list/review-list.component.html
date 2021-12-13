@@ -1,0 +1,41 @@
+<div class="clr-row" style='justify-content: center;'>
+  <ng-container *ngIf="postReview; then editor else showList"></ng-container>
+</div>
+
+<ng-template #showList>
+  <div class="clr-col-12 clr-col-sm-10">
+    <h1 class="section-title">이용후기</h1>
+    <hr>
+    <table class="table" *ngIf="(reviews$ | async); let reviews">
+      <thead>
+        <tr>
+          <th id='index'>ID</th>
+          <th id='title'>제목</th>
+          <th id='userId'>작성자</th>
+          <th id='date'>작성일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor='let review of reviews | paginate : { itemsPerPage: 10, currentPage: page }'>
+          <tr (click)='moveDetail(review.id)'>
+            <td>{{review.id}}</td>
+            <td>{{review.title.length > 15 ? (review.title | slice:0:15) + ('...') : (review.title)}}</td>
+            <td>{{review.writer.name}}</td>
+            <td>{{review.createdAt | date: 'yyyy-MM-dd\nHH:mm'}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    <button class="btn btn-outline" [disabled]='!myId' (click)='startReviewPosting()'>작성하기</button>
+  </div>
+</ng-template>
+
+<ng-template #editor>
+
+  <div class="clr-col-12 clr-col-sm-10">
+    <app-posting [postData]='postData' [onSubmit]='onSubmit' [onCancel]='onCancel' [submitText]='"등록"'
+      [cancelText]='"뒤로가기"' [disableCondition]=''>
+    </app-posting>
+  </div>
+</ng-template>

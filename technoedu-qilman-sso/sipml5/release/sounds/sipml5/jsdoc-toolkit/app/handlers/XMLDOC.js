@@ -1,0 +1,1 @@
+XMLDOC={};XMLDOC.VERSION="1.0";IO.includeDir("handlers/XMLDOC/");XMLDOC.handle=function(a,b){};XMLDOC.publish=function(a){};

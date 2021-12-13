@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SIP.js Demo 2</title>
+  <script src="sip.min.js?v=21" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="content-video-audio">
+<h2>In-browser Video Chat is Now a Breeze</h2>
+<h4 class="intro">Here's a demo. Start a video chat between Alice and Bob.</h4>
+
+<div class="demo-view">
+<video id="video-of-bob"></video>
+<video id="localVideo" muted="muted"></video>
+</div>
+
+<button id="alice-video-button" class="right" type="button">video</button>
+</div>
+<!--<script src="sipjs_demo.js?v=8" type="text/javascript"></script>
+<script src="user_media_detector.js?v=8" type="text/javascript"></script>
+-->
+<script type="text/javascript">
+async function getDevices() {
+    let devices = await navigator.mediaDevices.enumerateDevices();
+    console.log(devices.length + " devices.");
+    for (let {kind, label, deviceId, groupId} of devices) {
+        console.log(`${kind}: ${label} id=${deviceId} group=${groupId}`);
+    }
+    return devices;
+}
+
+var deviceList = await getDevices();
+console.log(deviceList);
+</script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>안녕하세요. 화상 서비스에 오신걸 환영합니다.</title>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+ 
+<style>
+.ui-body-c, .ui-overlay-c { background:#FFF; }
+div { 
+   border: 1px dotted blue;
+}
+</style>
+</head>
+
+<body>
+<p>
+----------------------- Get Conference List -------------------------
+</br>
+<button onclick="mcuGetConfList()">GetConfList</button>
+<div id="conflist">
+</div>
+
+<script type="text/javascript">
+function mcuGetConfList()
+{
+	$.post('mcucomm.php',
+			{cmd: 'GetConfList'} 
+			)
+	.done( 
+		function ( data ) 
+		{	
+			//alert(data);
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			var ret="JSON DATA:"+data+"</br>";
+			ret += "<table border=1><tr><th>uid</th><th>datetime</th><th>cid</th><th>did</th><th>numpart</th></tr>";
+			for ( var i = 0; i < val.conflist.length; i++ )
+			{
+				ret += "<tr>";
+				ret += "<td>"+val.conflist[i].uid+"</td>";
+				ret += "<td>"+val.conflist[i].datetime+"</td>";
+				ret += "<td>"+val.conflist[i].cid+"</td>";
+				ret += "<td>"+val.conflist[i].did+"</td>";
+				ret += "<td>"+val.conflist[i].numpart+"</td>";
+				ret += "</tr>";
+			}
+			ret += "</table>";
+			$('#conflist').html(ret);
+		}
+	);
+
+}
+</script>
+
+----------------------- Create Conference -------------------------
+</br>
+<br>DID:<input id=did type=text size=12>
+<br>MixerID:<input id=mixerID type=text size=12 value="mixer">
+<br>profileID:<input id=profileID type=text size=12 value="HD">
+<br>compType:<select id="compType">
+<option value="0">MOSAIC1x1<option value="1">MOSAIC2x2<option value="2">MOSAIC3x3<option value="3">MOSAIC3+4<option value="4">MOSAIC1+7<option value="5">MOSAIC1+5<option value="6">MOSAIC1+1<option value="7">MOSAICPIP1<option value="8">MOSAICPIP3<option value="9">MOSAIC4x4</select>
+<br>vad:<input id=vad type=text size=12 value="0">
+<br>size:<select id="size">
+<option value="0"> QCIF	176x144:1,22
+<option value="1"> CIF	352x288:1,22
+<option value="2"> VGA	640x480:1,33
+<option value="3"> PAL	768x576:1,33
+<option value="4"> HVGA	480x320:1,50
+<option value="5"> QVGA	320x240:1,33
+<option value="6" selected> HD720P	1280x720:1,78
+<option value="7"> WQVGA	400x240:1,67
+<option value="8"> W448P	768x448:1,71
+<option value="9"> SD448P	576x448:1,29
+<option value="10"> W288P	512x288:1,78
+<option value="11"> W576	1024x576:1,78
+<option value="12"> FOURCIF	704x576:1,22
+<option value="13"> FOURSIF	704x480:1,47
+<option value="14"> XGA	1024x768:1,33
+<option value="15"> WVGA	800x480:1,67
+<option value="17"> SIF	352x240:1,47
+<option value="16"> DCIF	528x384:1,38
+<option value="19"> SD480P	480x360:1,33
+<option value="18"> QSIF	176x120:1,47
+<option value="21"> SCIF	256x192:1,33
+<option value="20"> SQCIF	128x96:1,33</select>
+<br><button onclick="mcuCreateConf()">CreateConference</button>
+<script type="text/javascript">
+
+function mcuCreateConf()
+{
+	$.post('mcucomm.php', {
+		cmd: 'CreateConference',
+		name: $('#did').val(),
+		did: $('#did').val(),
+		mixerId: $('#mixerID').val(),
+		profileId: $('#profileID').val(),
+		compType: $('#compType').val(),
+		vad: $('#vad').val(),
+		size: $('#size').val(),
+		} 
+	)
+	.done( 
+		function ( data ) 
+		{	
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			alert(data);
+			
+			mcuGetConfList();
+		}
+	);
+	
+}
+</script>
+
+<p>
+----------------------- Remove Conference -------------------------
+</br>
+<br>UID:<input id=rmconf_uid type=text size=12>
+<button onclick="mcuRemoveConf()">RemoveConf</button>
+
+<br>DID:<input id=rmconf_did type=text size=12>
+<button onclick="mcuRemoveConfByDID()">RemoveConfByDID</button>
+<script type="text/javascript">
+
+function mcuRemoveConf()
+{
+	$.post('mcucomm.php', {
+		cmd: 'RemoveConference',
+		uid: $('#rmconf_uid').val(),
+		} 
+	)
+	.done( 
+		function ( data ) 
+		{	
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			alert(data);
+			
+			mcuGetConfList();
+		}
+	);
+	
+}
+
+function mcuRemoveConfByDID()
+{
+	$.post('mcucomm.php', {
+		cmd: 'RemoveConferenceByDID',
+		did: $('#rmconf_did').val(),
+		} 
+	)
+	.done( 
+		function ( data ) 
+		{	
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			alert(data);
+			
+			mcuGetConfList();
+		}
+	);
+	
+}
+</script>
+
+<p>
+----------------------- Room Info -------------------------
+</br>
+<br>UID:<input id=room_uid type=text size=12>
+<p>
+<button onclick="mcuGetConfRoomInfo()">GetConfRoomInfo</button>
+<div id=confroominfo>
+</div>
+
+<br>
+<button onclick="mcuGetConfPartList()">GetConfPartList</button>
+<div id=confpartlist>
+</div>
+
+<button onclick="mcuGetConfSlotInfo()">GetConfSlotInfo</button>
+<div id=confslotinfo>
+</div>
+
+<script type="text/javascript">
+
+function mcuGetConfRoomInfo()
+{
+	$.post('mcucomm.php', {
+		cmd: 'GetConfRoomInfo',
+		uid: $('#room_uid').val()
+		}
+	)
+	.done( 
+		function ( data ) 
+		{	
+			//alert(data);
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			var ret="JSON DATA:"+data+"</br>";
+			ret += "<table border=1><tr><th>uid</th><th>comptype</th><th>size</th><th>profileid</th><th>ret</th></tr>";
+			ret += "<tr>";
+			ret += "<td>"+val.confuid+"</td>";
+			ret += "<td>"+val.comptype+"</td>";
+			ret += "<td>"+val.size+"</td>";
+			ret += "<td>"+val.profileid+"</td>";
+			ret += "<td>"+val.ret+"</td>";
+			ret += "</tr>";
+
+			ret += "</table>";
+			$('#confroominfo').html(ret);
+		}
+	);
+}
+
+function mcuRemovePart(partid)
+{
+	$.post('mcucomm.php', {
+		cmd: 'RemovePart',
+		uid: $('#room_uid').val(),
+		partId: partid,
+		} 
+	)
+	.done( 
+		function ( data ) 
+		{	
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			alert(data);
+			
+			mcuGetConfPartList();
+		}
+	);
+}
+
+function mcuGetConfPartList()
+{
+	$.post('mcucomm.php', {
+			cmd: 'GetConfPartList',
+			 uid: $('#room_uid').val()
+			}
+	)
+	.done( 
+		function ( data ) 
+		{	
+			//alert(data);
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			var ret="JSON DATA:"+data+"</br>";
+			ret += "<table border=1><tr><th>partid</th><th>name</th><th>devName</th><th>state</th><th>amute</th><th>vmute</th></tr>";
+
+			for ( var i = 0; i < val.partlist.length; i++ )
+			{
+				ret += "<tr>";
+				ret += "<td>"+val.partlist[i].partid+"</td>";
+				ret += "<td>"+val.partlist[i].name+"</td>";
+				ret += "<td>"+val.partlist[i].devName+"</td>";
+				ret += "<td>"+val.partlist[i].state+"</td>";
+				ret += "<td>"+val.partlist[i].amute+"</td>";
+				ret += "<td>"+val.partlist[i].vmute+"</td>";
+				ret += "<td><button onclick='mcuRemovePart("+val.partlist[i].partid+")'>Remove</button></td>";
+				ret += "</tr>";
+			}
+			ret += "</table>";
+			$('#confpartlist').html(ret);
+		}
+	);
+}
+
+function mcuGetConfSlotInfo()
+{
+	$.post('mcucomm.php', {
+			cmd: 'GetConfSlotInfo',
+			 uid: $('#room_uid').val()
+			}
+	)
+	.done( 
+		function ( data ) 
+		{	
+			//alert(data);
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			var ret="JSON DATA:"+data+"</br>";
+			ret += "CompType:"+val.comptype+"</br>";
+			ret += "<table border=1><tr><th>idx</th><th>partid</th><th>name</th><th>devName</th></tr>";
+
+			for ( var i = 0; i < val.slotlist.length; i++ )
+			{
+				ret += "<tr>";
+				ret += "<td>"+val.slotlist[i].idx+"</td>";
+				ret += "<td>"+val.slotlist[i].partid+"</td>";
+				ret += "<td>"+val.slotlist[i].name+"</td>";
+				ret += "<td>"+val.slotlist[i].devName+"</td>";
+				ret += "</tr>";
+			}
+			ret += "</table>";
+			$('#confslotinfo').html(ret);
+		}
+	);
+}
+
+</script>
+<p>
+<br>SIP Addr:<input id=sipaddr type=text size=12 value="sip:">
+<button onclick="mcuInviteSIPAgent()">InviteSIPAgent</button>
+<script type="text/javascript">
+
+function mcuInviteSIPAgent()
+{
+	$.post('mcucomm.php', {
+		cmd: 'InviteSIPAgent',
+		uid: $('#room_uid').val(),
+		dest: $('#sipaddr').val(),
+		} 
+	)
+	.done( 
+		function ( data ) 
+		{	
+			val = eval('(' + data + ')');
+			if ( val == null ) 
+			{
+				alert("error:"+data);
+				return;
+			}
+			alert(data);
+			
+			mcuGetConfPartList();
+		}
+	);
+	
+}
+
+</script>
+
+</body>
+</html>

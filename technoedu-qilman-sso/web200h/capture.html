@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Capture Upload</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="css/style2.css" />
+		</noscript>
+	</head>
+
+<script type="text/javascript" charset='utf-8'>
+    var myVar = null;
+
+    function getCapture() {
+
+        myVar = window.CAPTURE.captureToBase64();
+        alert(myVar);
+    }
+
+    function asd(str) {
+        alert(str);
+    }
+</script>
+
+	<body id="top">
+
+		<!-- Header -->
+        <!--
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">Mentor BOX</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><input type="button" value="장치 설정" class="button special" onclick='javascript:cameratest();'></li>
+					</ul>
+				</nav>
+			</header>
+        -->
+
+		<!-- Banner -->
+			<section id="banner3">
+				<div class="inner">
+					<ul class="actions">
+						<li><input type="button" value="업로드" class="button small special" onclick='javascript:getCapture();'></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Footer -->
+        <!--
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; WOOKSUNGMEDIA All rights reserved.</li>
+						<li>Homepage: <a href="http://wooksungmedia.com">Wooksungmedia.com</a></li>
+						<li>Telephone: 82-42-931-5025</li>
+						<li><input type="button" value="로컬테스트" class="button small special" onclick='javascript:calltomcu("300", "2", "mentor", "1", "192.168.0.201");'></li>
+						<li><input type="button" value="Url설정" class="button small special" onclick='javascript:changeUrl();'></li>
+					</ul>
+				</div>
+			</footer>
+        -->
+
+	</body>
+</html>

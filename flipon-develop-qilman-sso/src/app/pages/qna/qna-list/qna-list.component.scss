@@ -1,0 +1,20 @@
+#index {
+  width: 80px;
+  @media(max-width: 425px) {width: 40px}
+}
+#date {
+  width: 110px;
+  @media(max-width: 425px) {width: 80px}
+}
+
+.table {
+  td,th {
+    padding: 11px 5px;
+  }
+  tr {
+    cursor: pointer;
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+function Layout(a){this.getElement=function(c,b){};this.Canvas=function(e,d,c,b){this.initiated=true};this.rotate=function(){};this.init=function(b,d,c){this.xyz=b+d+c;this.getXyz=function(){}}};

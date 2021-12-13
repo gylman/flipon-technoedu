@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="317.506" height="445.615" viewBox="0 0 317.506 445.615">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:#262d34;font-size:30px;font-family:NotoSansKR-Bold,Noto Sans KR;font-weight:700}.cls-3{fill:#7ddbff;stroke-width:9px}.cls-3,.cls-8{stroke:#fff}.cls-4{fill:#dcf9ff}.cls-5{fill:#16284c;stroke:#16284c}.cls-5,.cls-7,.cls-8,.cls-9{stroke-miterlimit:10}.cls-6{fill:#e4f8ff}.cls-7,.cls-9{fill:#fdc6bb;stroke:#fdc6bb}.cls-8{fill:none;stroke-linecap:round;stroke-width:5px}.cls-9{stroke-width:3px}.cls-10{filter:url(#패스_99)}
+        </style>
+        <filter id="패스_99" width="317.506" height="445.615" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dx="3" dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="5.5"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="그룹_79" data-name="그룹 79" transform="translate(-361.994 -230.5)">
+        <g class="cls-10" transform="translate(361.99 230.5)">
+            <path id="패스_99-2" d="M28.268 0h227.97a28.07 28.07 0 0 1 28.268 27.867v356.881a28.07 28.07 0 0 1-28.268 27.867H28.268A28.07 28.07 0 0 1 0 384.748V27.867A28.07 28.07 0 0 1 28.268 0z" class="cls-1" data-name="패스 99" transform="translate(13.5 13.5)"/>
+        </g>
+        <text id="학생" class="cls-2" transform="translate(457 527)">
+            <tspan x="32.9" y="35">학생</tspan>
+        </text>
+        <g id="그룹_78" data-name="그룹 78" transform="translate(-1260.709 -585.798)">
+            <path id="사각형_9" d="M0 0h202.236v148.894H0z" class="cls-3" data-name="사각형 9" transform="translate(1677.269 905.551)"/>
+            <path id="사각형_11" d="M0 0h206.716v21.12H0z" class="cls-4" data-name="사각형 11" transform="translate(1674.709 895.798)"/>
+            <circle id="타원_4" cx="3.84" cy="3.84" r="3.84" class="cls-1" data-name="타원 4" transform="translate(1843.026 902.838)"/>
+            <circle id="타원_5" cx="3.84" cy="3.84" r="3.84" class="cls-1" data-name="타원 5" transform="translate(1855.825 902.838)"/>
+            <circle id="타원_6" cx="3.84" cy="3.84" r="3.84" class="cls-1" data-name="타원 6" transform="translate(1868.625 902.838)"/>
+        </g>
+        <g id="그룹_74" data-name="그룹 74" transform="translate(-1444.721 -585.392)">
+            <path id="패스_92" d="M1944.958 971.9c-4.688-7.839-9.5-16.052-10.165-25.162-.349-4.787.649-9.961 4.034-13.365 4.17-4.191 10.689-4.655 16.6-4.865 6.12-.219 12.473-.4 18.105 2.009a41.913 41.913 0 0 1 6.8 3.978 25.713 25.713 0 0 1 5.968 4.959c5.271 6.585 2.634 16.933-3.439 22.786s-14.548 8.33-22.668 10.612" class="cls-5" data-name="패스 92" transform="translate(7.952)"/>
+            <path id="패스_93" d="M1921.469 1035.295c.68-9.789-1.206-26 3.2-32.769 5.77-8.867 12.223-16.8 19.58-21.656 13.365-8.825 29.035-6.593 41.89 4.051s16.5 36.041 22.657 57.246" class="cls-6" data-name="패스 93" transform="translate(-3.334 3.173)"/>
+            <path id="패스_94" d="M1916.667 999.41c-5.944 1.4-6.018 2.067-10.32 6.4-1.439 1.45-2.824 3.287-2.6 5.316a6.831 6.831 0 0 0 2.044 3.683c11.358 12.39 31.252 12.821 44.024 23.748a56.95 56.95 0 0 0 5.018 4.247 13.526 13.526 0 0 0 13.05 1.294c4.132-1.956 6.906-6.725 6.06-11.218-1.122-5.957-7.619-9.4-13.64-10.1s-12.176.427-18.152-.6-12.188-5.28-12.354-11.34c-.052-1.853.464-3.786-.2-5.517-1.76-4.594-8.907-3.449-12.928-6.282" class="cls-7" data-name="패스 94" transform="translate(0 17.672)"/>
+            <path id="패스_95" d="M1959.772 1030.854c11.415-17.845 29.62-28.871 48.12-29.143a10.137 10.137 0 0 1 4.822.8c3.594 1.822 5.243 7.429 4.2 12.022a15.529 15.529 0 0 1-7.779 10.031c-3.554 1.936-7.485 2.529-11.352 3.037a355.052 355.052 0 0 1-39.347 2.955" class="cls-7" data-name="패스 95" transform="translate(3.499 18.802)"/>
+            <path id="패스_96" d="M1970.652 997.772a169.077 169.077 0 0 1-9.019 20.791" class="cls-8" data-name="패스 96" transform="translate(14.852 17.793)"/>
+            <path id="패스_26" d="M1957.22 966.663c-10.039-1.661-17.842-11.936-16.742-22.057a13.123 13.123 0 0 1 3.723-8.281 7.8 7.8 0 0 1 8.567-1.567c3.81 1.951 4.583 6.9 5.812 11.005s4.993 8.607 8.957 6.992c1.465-.6 3.518-1.783 4.233-.377a2.006 2.006 0 0 1 .168.914c.007 3.562-2.839 6.534-5.956 8.254s-6.644 2.627-9.7 4.458a5.23 5.23 0 0 0-2 1.822 5.887 5.887 0 0 0 .125 4.567 21.58 21.58 0 0 1 1.571 7.256c-.094 2.488-1.508 5.134-3.917 5.761-3.233.844-6.334-2.488-6.571-5.82s1.455-6.463 3.1-9.373" class="cls-9" data-name="패스 26" transform="translate(9.4 1.466)"/>
+        </g>
+    </g>
+</svg>

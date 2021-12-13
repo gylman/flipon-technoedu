@@ -1,0 +1,1 @@
+var box={};box.holder={};box.holder.foo=function(){this.counter=1};box.holder.foo();print(box.holder.counter);

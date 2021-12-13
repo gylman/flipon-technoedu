@@ -1,0 +1,65 @@
+<h1 class="title">수업 신청</h1>
+<h3 id="subjects">
+  <a (click)="changeSubject('')" [ngClass]="subject === '' ? 'selected' : ''">전체</a> |
+  <a (click)="changeSubject('MATH')" [ngClass]="subject === 'MATH' ? 'selected' : ''">수학</a> |
+  <a (click)="changeSubject('ENGLISH')" [ngClass]="subject === 'ENGLISH' ? 'selected' : ''">영어</a>
+</h3>
+
+<div class="clr-row clr-justify-content-start">
+  <div class="clr-col-6 clr-col-sm-4 clr-col-md-3" *ngFor="let teacher of teachers">
+    <div class="card">
+      <div class="card-img">
+        <img [src]="teacher.profileImage" alt="Profile image">
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">
+          {{teacher.name}}
+          <span style="font-size: 0.75em;">{{teacher.profile.school.name + ' ' + teacher.profile.school.major}}</span>
+        </h4>
+        <p class="card-text">
+          {{teacher.profile.introduction}}
+        </p>
+      </div>
+      <div class="card-footer">
+        <a class="btn btn-sm btn-link" (click)="confirm(teacher)">신청하기</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<clr-wizard #wizard [(clrWizardOpen)]="requestWizardOpen" clrWizardSize="lg">
+  <clr-wizard-title>수업 신청하기</clr-wizard-title>
+
+  <clr-wizard-button [type]="'cancel'">취소</clr-wizard-button>
+  <clr-wizard-button [type]="'previous'">이전</clr-wizard-button>
+  <clr-wizard-button [type]="'next'">다음</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'">완료</clr-wizard-button>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Page 1</ng-template>
+    ...
+  </clr-wizard-page>
+
+<!--  <clr-wizard-page>-->
+<!--    <ng-template clrPageTitle>Page 2</ng-template>-->
+<!--    ...-->
+<!--  </clr-wizard-page>-->
+
+<!--  <clr-wizard-page>-->
+<!--    <ng-template clrPageTitle>Page 3</ng-template>-->
+<!--    ...-->
+<!--  </clr-wizard-page>-->
+</clr-wizard>
+
+<!--<clr-modal [(clrModalOpen)]="isConfirmVisible" [clrModalStaticBackdrop]="false">-->
+<!--  <h3 class="modal-title">수업 신청</h3>-->
+<!--  <div class="modal-body" *ngIf="selectedTeacher">-->
+<!--    <p>{{selectedTeacher.name}}</p>-->
+<!--    <p>{{selectedTeacher.profile.school.name + ' ' + selectedTeacher.profile.school.major}}</p>-->
+<!--    <p>{{selectedTeacher.profile.introduction}}</p>-->
+<!--  </div>-->
+<!--  <div class="modal-footer">-->
+<!--    <button type="button" class="btn btn-outline" (click)="isConfirmVisible = false">취소</button>-->
+<!--    <button type="button" class="btn btn-primary" [clrLoading]="requestBtnState" (click)="request()">신청</button>-->
+<!--  </div>-->
+<!--</clr-modal>-->

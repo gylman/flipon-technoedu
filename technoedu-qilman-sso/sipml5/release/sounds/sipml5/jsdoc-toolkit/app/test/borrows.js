@@ -1,0 +1,1 @@
+function Layout(b){this.init=function(c){};this.getId=function(){};this.orientation="landscape";function a(c){}}Layout.units=function(){};function Page(){this.reset=function(a){}}function ThreeColumnPage(){this.init=function(a){}};

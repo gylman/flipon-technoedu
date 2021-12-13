@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85.435" height="30" viewBox="0 0 85.435 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #16284c;
+        font-size: 14px;
+        font-family: NanumSquareEB, NanumSquare;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #16284c;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="그룹_2" data-name="그룹 2" transform="translate(-1665 -47)">
+    <text id="Sign_in" data-name="Sign in" class="cls-1" transform="translate(1684.304 54.522)"><tspan x="0" y="12">Sign in</tspan></text>
+    <g id="사각형_16" data-name="사각형 16" class="cls-2" transform="translate(1665 47)">
+      <rect class="cls-3" width="85.435" height="30" rx="12"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="84.435" height="29" rx="11.5"/>
+    </g>
+  </g>
+</svg>

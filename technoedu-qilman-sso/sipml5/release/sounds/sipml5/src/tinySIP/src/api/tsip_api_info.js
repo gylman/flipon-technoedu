@@ -1,0 +1,1 @@
+tsip_event_info.prototype=Object.create(tsip_event.prototype);var tsip_event_info_type_e={I_INFO:0,AO_INFO:1};function tsip_event_info(d,a,c,b,e){tsip_event.call(this,d,a,c,b,tsip_event_type_e.INFO);this.e_type=e};

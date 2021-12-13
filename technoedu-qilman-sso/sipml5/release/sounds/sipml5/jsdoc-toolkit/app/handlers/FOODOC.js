@@ -1,0 +1,1 @@
+FOODOC={};FOODOC.VERSION="1.0";FOODOC.handle=function(a,b){LOG.inform("Handling file '"+a+"'");return[new JSDOC.Symbol("foo",[],"VIRTUAL",new JSDOC.DocComment("/** This is a foo. */"))]};FOODOC.publish=function(a){LOG.inform("Publishing symbolgroup.")};

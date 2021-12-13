@@ -1,0 +1,1 @@
+function Article(){}Article.prototype={Title:function(a){this.title=a},init:function(a){this.pages=a}};f=new Article();f.init("one two three");t=new f.Title("my title");print(f.pages);print(t.title);

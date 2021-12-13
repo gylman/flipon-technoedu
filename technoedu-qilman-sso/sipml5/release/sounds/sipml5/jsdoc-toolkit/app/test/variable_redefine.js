@@ -1,0 +1,1 @@
+function Foo(){var b=1;b=2;this.baz=1;baz=2;var a={tada:1}};

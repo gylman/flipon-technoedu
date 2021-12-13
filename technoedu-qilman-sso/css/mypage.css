@@ -1,0 +1,400 @@
+@media (min-width:1024px){
+	/****************************************************************************
+		My FaceLink - 공통적용 사항
+	****************************************************************************/
+	/* mypage 공통 적용 */
+	#mypage { display:inline-block; *zoom:1; width:1280px; margin-top:-25px; }
+	#mypage > p.title { height:40px; line-height:40px; margin-bottom:20px; font-weight:bold; font-size:22px; }	/* 나의 회의 제목 */
+
+
+	/****************************************************************************
+		My FaceLink - 나의 회의
+	****************************************************************************/
+	#mypage > #chat { display:inline-block; width:100%; margin-top:10px; }
+	#mypage > #chat > li { }
+
+	#mypage > #movie { float:left; width:720px; height:405px; overflow:hidden; }
+	#mypage > #movie > video { width:100%; }
+	#mypage > #movie_func { float:right; width:340px; float:right; }
+	#movie_func > ul { border:1px solid #c8c7c7; }
+	#movie_func > ul > li:first-child { width:100%; height:40px; line-height:40px; color:#404141; border-bottom:1px solid #c8c7c7; font-size:18px; font-weight:bold; text-align:center; }
+
+	#movie_func > ul select { width:75px; height:30px; margin-bottom:5px; border:1px solid #d6d6d6; }
+
+	/* 회의기능, 방 제어 기능 */
+	#movie_func > ul.mem_func {}
+	#movie_func > ul.room_func { margin-top:10px; }
+	#movie_func > ul.mem_func input[type=button], 
+	#movie_func > ul.room_func input[type=button] { width:48%; margin:3px; }
+	/* 초대하기 */
+	#movie_func > ul.invited_func { margin-top:10px; }
+	#movie_func > ul.invited_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 레이아웃 설정 */
+	#movie_func > ul.screen_layout_func { margin-top:10px; }
+	#movie_func > ul.screen_layout_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:12px; }
+	#movie_func > ul.screen_layout_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 위치 변경 */
+	#movie_func > ul.screen_position_func { margin-top:10px; }
+	#movie_func > ul.screen_position_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:10px; padding-left:20px; }
+	#movie_func > ul.screen_position_func span > select { width:100px; margin-left:10px; }
+	/* 음성 및 영상 제어 */
+	#movie_func > ul.voice_func { margin-top:10px; }
+	#movie_func > ul.voice_func ul { clear:both; height:35px; }
+	#movie_func > ul.voice_func ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.voice_func ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.voice_func ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.voice_func ul > li > img { vertical-align:middle; }
+
+	#movie_func > ul.voice_func ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.voice_func ul > li:nth-child(2) { width:25%; } /* 이름 */
+	#movie_func > ul.voice_func ul > li:nth-child(3) { width:30%; } /* 음성제어 */
+	#movie_func > ul.voice_func ul > li:nth-child(4) { width:30%; } /* 영상제어 */
+
+	/* 사용자 리스트 */
+	#movie_func > ul.user_list { margin-top:10px; }
+	#movie_func > ul.user_list ul { clear:both; height:35px; }
+	#movie_func > ul.user_list ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.user_list ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.user_list ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.user_list ul > li > input[type=button] { height:25px; background:#2577b8; border:1px solid #1a65a0; color:white; vertical-align:middle; }
+
+	#movie_func > ul.user_list ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.user_list ul > li:nth-child(2) { width:50%; } /* 이름 */
+	#movie_func > ul.user_list ul > li:nth-child(3) { width:35%; } /* 강제퇴장 */
+
+	/* 채팅방영역 */
+	#msg_area { float:left; width:400px; height:380px; margin-left:10px; }
+	#msg_area > #msg_content { width:400px; height:374px; overflow-y:scroll; overflow-x:hidden; padding-left:10px; padding-right:10px;border:1px solid #c8c7c7; }
+	#msg_area > #msg_txt { bottom:0px; width:100%; height:34px; } 
+	#msg_area > #msg_txt > #chat_msg { width:354px; height:30px;  border:1px solid #d6d6d6; } 
+	#msg_area > #msg_txt > #btn_chat_send { width:40; height:32px; background:#2577b8; border:1px solid #1a67a4; color:white; }
+
+	/* 자료 공유 */
+	#mypage > #data_sharing { display:inline-block; width:100%; margin-top:10px; }
+	#mypage > #data_sharing li { display:inline-block; }
+	#mypage > #data_sharing #movie { float:left; width:49%; }
+	#mypage > #data_sharing #movie > video { width:100%; }
+	#mypage > #data_sharing #pdf_area { position:relative; float:right; width:49%; height:300px; }
+	#mypage > #data_sharing #pdf_area > .pdf_btn { float:left; height:30px; width:70%; }
+	#mypage > #data_sharing #pdf_area > .pdf_color { float:right; height:20px; margin:7px 0px 5px 0px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span { display:inline-block; width:15px; height:15px; margin-left:2px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color1 { background:#fd225d; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color2 { background:#fa5e33; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color3 { background:#fad120; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color4 { background:#06d212; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color5 { background:#4dc4f5; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color6 { background:#1461ec; }
+	#mypage > #data_sharing #pdf_area > .pdf_file { clear:both; position:absolute; width:100%; height:260px; bottom:0px; border:1px solid #d6d6d6; }
+
+	#mypage > #data_sharing #movie_func { clear:both; width:100%; margin-top:20px; }
+	#mypage > #data_sharing .mem_func { float:left; width:32%;}
+	#mypage > #data_sharing .room_func { float:left; width:32%; margin:0px 2%; }
+	#mypage > #data_sharing #msg_area { float:left; width:32%; height:150px; margin-top:0px; }
+	#mypage > #data_sharing #msg_content { height:116px; }
+
+
+	/****************************************************************************
+		My FaceLink - 녹화리스트
+	****************************************************************************/
+}
+
+@media (min-width:768px) and (max-width:1023px){
+	/****************************************************************************
+		My FaceLink - 공통적용 사항
+	****************************************************************************/
+	/* mypage 공통 적용 */
+	#mypage { display:inline-block; *zoom:1; width:100%; }
+	#mypage > p.title { height:40px; line-height:40px; margin-bottom:20px; font-weight:bold; font-size:22px; }	/* 나의 회의 제목 */
+
+
+	/****************************************************************************
+		My FaceLink - 나의 회의
+	****************************************************************************/
+	#mypage > #chat { display:inline-block; width:100%; }
+	#mypage > #chat > li { }
+
+	#mypage > #movie { float:left; width:720px; height:405px; overflow:hidden; }
+	#mypage > #movie > video { width:100%; }
+	#mypage > #movie_func { float:right; width:340px; float:right; }
+	#movie_func > ul { border:1px solid #c8c7c7; }
+	#movie_func > ul > li:first-child { width:100%; height:40px; line-height:40px; color:#404141; border-bottom:1px solid #c8c7c7; font-size:18px; font-weight:bold; text-align:center; }
+
+	#movie_func > ul select { width:75px; height:30px; margin-bottom:5px; border:1px solid #d6d6d6; }
+
+	/* 회의기능, 방 제어 기능 */
+	#movie_func > ul.mem_func {}
+	#movie_func > ul.room_func { margin-top:10px; }
+	#movie_func > ul.mem_func input[type=button], 
+	#movie_func > ul.room_func input[type=button] { width:48%; margin:3px; }
+	/* 초대하기 */
+	#movie_func > ul.invited_func { margin-top:10px; }
+	#movie_func > ul.invited_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 레이아웃 설정 */
+	#movie_func > ul.screen_layout_func { margin-top:10px; }
+	#movie_func > ul.screen_layout_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:12px; }
+	#movie_func > ul.screen_layout_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 위치 변경 */
+	#movie_func > ul.screen_position_func { margin-top:10px; }
+	#movie_func > ul.screen_position_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:10px; padding-left:20px; }
+	#movie_func > ul.screen_position_func span > select { width:100px; margin-left:10px; }
+	/* 음성 및 영상 제어 */
+	#movie_func > ul.voice_func { margin-top:10px; }
+	#movie_func > ul.voice_func ul { clear:both; height:35px; }
+	#movie_func > ul.voice_func ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.voice_func ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.voice_func ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.voice_func ul > li > img { vertical-align:middle; }
+
+	#movie_func > ul.voice_func ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.voice_func ul > li:nth-child(2) { width:25%; } /* 이름 */
+	#movie_func > ul.voice_func ul > li:nth-child(3) { width:30%; } /* 음성제어 */
+	#movie_func > ul.voice_func ul > li:nth-child(4) { width:30%; } /* 영상제어 */
+
+	/* 사용자 리스트 */
+	#movie_func > ul.user_list { margin-top:10px; }
+	#movie_func > ul.user_list ul { clear:both; height:35px; }
+	#movie_func > ul.user_list ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.user_list ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.user_list ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.user_list ul > li > input[type=button] { height:25px; background:#2577b8; border:1px solid #1a65a0; color:white; vertical-align:middle; }
+
+	#movie_func > ul.user_list ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.user_list ul > li:nth-child(2) { width:50%; } /* 이름 */
+	#movie_func > ul.user_list ul > li:nth-child(3) { width:35%; } /* 강제퇴장 */
+
+	/* 채팅방영역 */
+	#msg_area { float:left; width:400px; height:380px; margin-left:10px; }
+	#msg_area > #msg_content { width:400px; height:374px; overflow-y:scroll; overflow-x:hidden; padding-left:10px; padding-right:10px;border:1px solid #c8c7c7; }
+	#msg_area > #msg_txt { bottom:0px; width:100%; height:34px; } 
+	#msg_area > #msg_txt > #chat_msg { width:354px; height:30px;  border:1px solid #d6d6d6; } 
+	#msg_area > #msg_txt > #btn_chat_send { width:40; height:32px; background:#2577b8; border:1px solid #1a67a4; color:white; }
+
+	/* 자료 공유 */
+	#mypage > #data_sharing { display:inline-block; width:100%; margin-top:10px; }
+	#mypage > #data_sharing li { display:inline-block; }
+	#mypage > #data_sharing #movie { float:left; width:49%; }
+	#mypage > #data_sharing #movie > video { width:100%; }
+	#mypage > #data_sharing #pdf_area { position:relative; float:right; width:49%; height:300px; }
+	#mypage > #data_sharing #pdf_area > .pdf_btn { float:left; height:30px; width:70%; }
+	#mypage > #data_sharing #pdf_area > .pdf_color { float:right; height:20px; margin:7px 0px 5px 0px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span { display:inline-block; width:15px; height:15px; margin-left:2px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color1 { background:#fd225d; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color2 { background:#fa5e33; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color3 { background:#fad120; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color4 { background:#06d212; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color5 { background:#4dc4f5; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color6 { background:#1461ec; }
+	#mypage > #data_sharing #pdf_area > .pdf_file { clear:both; position:absolute; width:100%; height:260px; bottom:0px; border:1px solid #d6d6d6; }
+
+	#mypage > #data_sharing #movie_func { clear:both; width:100%; margin-top:20px; }
+	#mypage > #data_sharing .mem_func { float:left; width:32%;}
+	#mypage > #data_sharing .room_func { float:left; width:32%; margin:0px 2%; }
+	#mypage > #data_sharing #msg_area { float:left; width:32%; height:150px; margin-top:0px; }
+	#mypage > #data_sharing #msg_content { height:116px; }
+
+
+	/****************************************************************************
+		My FaceLink - 녹화리스트
+	****************************************************************************/
+}
+
+
+@media (min-width:427px) and (max-width:767px){
+	/****************************************************************************
+		My FaceLink - 공통적용 사항
+	****************************************************************************/
+	/* mypage 공통 적용 */
+	#mypage { display:inline-block; *zoom:1; width:100%; }
+	#mypage > p.title { height:40px; line-height:40px; margin-bottom:20px; font-weight:bold; font-size:22px; }	/* 나의 회의 제목 */
+
+
+	/****************************************************************************
+		My FaceLink - 나의 회의
+	****************************************************************************/
+	#mypage > #chat { display:inline-block; width:100%; }
+	#mypage > #chat > li { }
+
+	#mypage > #movie { float:left; width:720px; height:405px; overflow:hidden; }
+	#mypage > #movie > video { width:100%; }
+	#mypage > #movie_func { float:right; width:340px; float:right; }
+	#movie_func > ul { border:1px solid #c8c7c7; }
+	#movie_func > ul > li:first-child { width:100%; height:40px; line-height:40px; color:#404141; border-bottom:1px solid #c8c7c7; font-size:18px; font-weight:bold; text-align:center; }
+
+	#movie_func > ul select { width:75px; height:30px; margin-bottom:5px; border:1px solid #d6d6d6; }
+
+	/* 회의기능, 방 제어 기능 */
+	#movie_func > ul.mem_func {}
+	#movie_func > ul.room_func { margin-top:10px; }
+	#movie_func > ul.mem_func input[type=button], 
+	#movie_func > ul.room_func input[type=button] { width:48%; margin:3px; }
+	/* 초대하기 */
+	#movie_func > ul.invited_func { margin-top:10px; }
+	#movie_func > ul.invited_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 레이아웃 설정 */
+	#movie_func > ul.screen_layout_func { margin-top:10px; }
+	#movie_func > ul.screen_layout_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:12px; }
+	#movie_func > ul.screen_layout_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 위치 변경 */
+	#movie_func > ul.screen_position_func { margin-top:10px; }
+	#movie_func > ul.screen_position_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:10px; padding-left:20px; }
+	#movie_func > ul.screen_position_func span > select { width:100px; margin-left:10px; }
+	/* 음성 및 영상 제어 */
+	#movie_func > ul.voice_func { margin-top:10px; }
+	#movie_func > ul.voice_func ul { clear:both; height:35px; }
+	#movie_func > ul.voice_func ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.voice_func ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.voice_func ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.voice_func ul > li > img { vertical-align:middle; }
+
+	#movie_func > ul.voice_func ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.voice_func ul > li:nth-child(2) { width:25%; } /* 이름 */
+	#movie_func > ul.voice_func ul > li:nth-child(3) { width:30%; } /* 음성제어 */
+	#movie_func > ul.voice_func ul > li:nth-child(4) { width:30%; } /* 영상제어 */
+
+	/* 사용자 리스트 */
+	#movie_func > ul.user_list { margin-top:10px; }
+	#movie_func > ul.user_list ul { clear:both; height:35px; }
+	#movie_func > ul.user_list ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.user_list ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.user_list ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.user_list ul > li > input[type=button] { height:25px; background:#2577b8; border:1px solid #1a65a0; color:white; vertical-align:middle; }
+
+	#movie_func > ul.user_list ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.user_list ul > li:nth-child(2) { width:50%; } /* 이름 */
+	#movie_func > ul.user_list ul > li:nth-child(3) { width:35%; } /* 강제퇴장 */
+
+	/* 채팅방영역 */
+	#msg_area { float:left; width:400px; height:380px; margin-left:10px; }
+	#msg_area > #msg_content { width:400px; height:374px; overflow-y:scroll; overflow-x:hidden; padding-left:10px; padding-right:10px;border:1px solid #c8c7c7; }
+	#msg_area > #msg_txt { bottom:0px; width:100%; height:34px; } 
+	#msg_area > #msg_txt > #chat_msg { width:354px; height:30px;  border:1px solid #d6d6d6; } 
+	#msg_area > #msg_txt > #btn_chat_send { width:40; height:32px; background:#2577b8; border:1px solid #1a67a4; color:white; }
+
+	/* 자료 공유 */
+	#mypage > #data_sharing { display:inline-block; width:100%; margin-top:10px; }
+	#mypage > #data_sharing li { display:inline-block; }
+	#mypage > #data_sharing #movie { float:left; width:49%; }
+	#mypage > #data_sharing #movie > video { width:100%; }
+	#mypage > #data_sharing #pdf_area { position:relative; float:right; width:49%; height:300px; }
+	#mypage > #data_sharing #pdf_area > .pdf_btn { float:left; height:30px; width:70%; }
+	#mypage > #data_sharing #pdf_area > .pdf_color { float:right; height:20px; margin:7px 0px 5px 0px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span { display:inline-block; width:15px; height:15px; margin-left:2px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color1 { background:#fd225d; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color2 { background:#fa5e33; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color3 { background:#fad120; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color4 { background:#06d212; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color5 { background:#4dc4f5; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color6 { background:#1461ec; }
+	#mypage > #data_sharing #pdf_area > .pdf_file { clear:both; position:absolute; width:100%; height:260px; bottom:0px; border:1px solid #d6d6d6; }
+
+	#mypage > #data_sharing #movie_func { clear:both; width:100%; margin-top:20px; }
+	#mypage > #data_sharing .mem_func { float:left; width:32%;}
+	#mypage > #data_sharing .room_func { float:left; width:32%; margin:0px 2%; }
+	#mypage > #data_sharing #msg_area { float:left; width:32%; height:150px; margin-top:0px; }
+	#mypage > #data_sharing #msg_content { height:116px; }
+
+
+	/****************************************************************************
+		My FaceLink - 녹화리스트
+	****************************************************************************/
+}
+
+@media (max-width:427px){
+	/****************************************************************************
+		My FaceLink - 공통적용 사항
+	****************************************************************************/
+	/* mypage 공통 적용 */
+	#mypage { display:inline-block; *zoom:1; width:100%; }
+	#mypage > p.title { height:40px; line-height:40px; margin-bottom:20px; font-weight:bold; font-size:22px; }	/* 나의 회의 제목 */
+
+
+	/****************************************************************************
+		My FaceLink - 나의 회의
+	****************************************************************************/
+	#mypage > #chat { display:inline-block; width:100%; }
+	#mypage > #chat > li { }
+
+	#mypage > #movie { float:left; width:720px; height:405px; overflow:hidden; }
+	#mypage > #movie > video { width:100%; }
+	#mypage > #movie_func { float:right; width:340px; float:right; }
+	#movie_func > ul { border:1px solid #c8c7c7; }
+	#movie_func > ul > li:first-child { width:100%; height:40px; line-height:40px; color:#404141; border-bottom:1px solid #c8c7c7; font-size:18px; font-weight:bold; text-align:center; }
+
+	#movie_func > ul select { width:75px; height:30px; margin-bottom:5px; border:1px solid #d6d6d6; }
+
+	/* 회의기능, 방 제어 기능 */
+	#movie_func > ul.mem_func {}
+	#movie_func > ul.room_func { margin-top:10px; }
+	#movie_func > ul.mem_func input[type=button], 
+	#movie_func > ul.room_func input[type=button] { width:48%; margin:3px; }
+	/* 초대하기 */
+	#movie_func > ul.invited_func { margin-top:10px; }
+	#movie_func > ul.invited_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 레이아웃 설정 */
+	#movie_func > ul.screen_layout_func { margin-top:10px; }
+	#movie_func > ul.screen_layout_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:12px; }
+	#movie_func > ul.screen_layout_func input[type=button] { width:100px; margin:3px; }
+	/* 화면 위치 변경 */
+	#movie_func > ul.screen_position_func { margin-top:10px; }
+	#movie_func > ul.screen_position_func span { display:inline-block; vertical-align:top; margin-top:10px; margin-left:10px; padding-left:20px; }
+	#movie_func > ul.screen_position_func span > select { width:100px; margin-left:10px; }
+	/* 음성 및 영상 제어 */
+	#movie_func > ul.voice_func { margin-top:10px; }
+	#movie_func > ul.voice_func ul { clear:both; height:35px; }
+	#movie_func > ul.voice_func ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.voice_func ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.voice_func ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.voice_func ul > li > img { vertical-align:middle; }
+
+	#movie_func > ul.voice_func ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.voice_func ul > li:nth-child(2) { width:25%; } /* 이름 */
+	#movie_func > ul.voice_func ul > li:nth-child(3) { width:30%; } /* 음성제어 */
+	#movie_func > ul.voice_func ul > li:nth-child(4) { width:30%; } /* 영상제어 */
+
+	/* 사용자 리스트 */
+	#movie_func > ul.user_list { margin-top:10px; }
+	#movie_func > ul.user_list ul { clear:both; height:35px; }
+	#movie_func > ul.user_list ul:first-child > li { background:#4d4e50; color:white; }
+	#movie_func > ul.user_list ul:nth-child(odd) { background:#efeeee; }
+	#movie_func > ul.user_list ul > li { float:left; height:35px; line-height:35px; text-align:center; }
+	#movie_func > ul.user_list ul > li > input[type=button] { height:25px; background:#2577b8; border:1px solid #1a65a0; color:white; vertical-align:middle; }
+
+	#movie_func > ul.user_list ul > li:nth-child(1) { width:15%; } /* 번호 */
+	#movie_func > ul.user_list ul > li:nth-child(2) { width:50%; } /* 이름 */
+	#movie_func > ul.user_list ul > li:nth-child(3) { width:35%; } /* 강제퇴장 */
+
+	/* 채팅방영역 */
+	#msg_area { float:left; width:400px; height:380px; margin-left:10px; }
+	#msg_area > #msg_content { width:400px; height:374px; overflow-y:scroll; overflow-x:hidden; padding-left:10px; padding-right:10px;border:1px solid #c8c7c7; }
+	#msg_area > #msg_txt { bottom:0px; width:100%; height:34px; } 
+	#msg_area > #msg_txt > #chat_msg { width:354px; height:30px;  border:1px solid #d6d6d6; } 
+	#msg_area > #msg_txt > #btn_chat_send { width:40; height:32px; background:#2577b8; border:1px solid #1a67a4; color:white; }
+
+	/* 자료 공유 */
+	#mypage > #data_sharing { display:inline-block; width:100%; margin-top:10px; }
+	#mypage > #data_sharing li { display:inline-block; }
+	#mypage > #data_sharing #movie { float:left; width:49%; }
+	#mypage > #data_sharing #movie > video { width:100%; }
+	#mypage > #data_sharing #pdf_area { position:relative; float:right; width:49%; height:300px; }
+	#mypage > #data_sharing #pdf_area > .pdf_btn { float:left; height:30px; width:70%; }
+	#mypage > #data_sharing #pdf_area > .pdf_color { float:right; height:20px; margin:7px 0px 5px 0px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span { display:inline-block; width:15px; height:15px; margin-left:2px; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color1 { background:#fd225d; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color2 { background:#fa5e33; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color3 { background:#fad120; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color4 { background:#06d212; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color5 { background:#4dc4f5; }
+	#mypage > #data_sharing #pdf_area > .pdf_color > span.color6 { background:#1461ec; }
+	#mypage > #data_sharing #pdf_area > .pdf_file { clear:both; position:absolute; width:100%; height:260px; bottom:0px; border:1px solid #d6d6d6; }
+
+	#mypage > #data_sharing #movie_func { clear:both; width:100%; margin-top:20px; }
+	#mypage > #data_sharing .mem_func { float:left; width:32%;}
+	#mypage > #data_sharing .room_func { float:left; width:32%; margin:0px 2%; }
+	#mypage > #data_sharing #msg_area { float:left; width:32%; height:150px; margin-top:0px; }
+	#mypage > #data_sharing #msg_content { height:116px; }
+
+
+	/****************************************************************************
+		My FaceLink - 녹화리스트
+	****************************************************************************/
+}

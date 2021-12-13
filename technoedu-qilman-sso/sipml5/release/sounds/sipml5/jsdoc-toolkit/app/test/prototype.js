@@ -1,0 +1,1 @@
+function Article(){}Article.prototype.init=function(b){this.title=b;Article.counter=1};a=new Article();a.Init("my title");print(a.title);print(Article.counter);

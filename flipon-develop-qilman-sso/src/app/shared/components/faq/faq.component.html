@@ -1,0 +1,19 @@
+<h1 class="section-title"><span>FAQ</span> 자주 묻는 질문들</h1>
+<hr>
+<clr-tabs class="custom-tabs">
+  <clr-tab *ngFor="let faqContent of faqContents">
+    <button clrTabLink>{{faqContent.topic}}</button>
+    <clr-tab-content *clrIfActive>
+      <clr-accordion class="custom-accordion">
+        <div *ngFor="let question of faqContent.questions; index as i">
+          <clr-accordion-panel>
+            <clr-accordion-title><span>{{(i+1)+' '}}</span>{{question.q}}</clr-accordion-title>
+            <clr-accordion-content *clrIfExpanded>
+              {{question.a}}
+            </clr-accordion-content>
+          </clr-accordion-panel>
+        </div>
+      </clr-accordion>
+    </clr-tab-content>
+  </clr-tab>
+</clr-tabs>

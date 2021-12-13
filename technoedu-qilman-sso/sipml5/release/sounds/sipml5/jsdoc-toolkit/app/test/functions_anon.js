@@ -1,0 +1,1 @@
+a=new function(){this.b=1;this.f=function(){this.c=2}};bar1=function Zoola1(){this.g=1}();bar2=new function Zoola2(){this.p=1};module=(function(){var b=1;return{pub:1}})();

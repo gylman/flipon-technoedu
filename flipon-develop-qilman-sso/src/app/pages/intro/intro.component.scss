@@ -1,0 +1,24 @@
+#intro_section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin-bottom: 100px;
+    max-width: 1080px;
+    width: 100%;
+    height: auto;
+    @media (max-width: 600px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  a {
+    img {
+      @media (min-width: 600px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+.select.segment {
+  background: transparent !important;
+  max-width: 760px;
+  border: 0;
+}
+
+.type {
+  width: 315px;
+  height: 443px;
+  background-color: transparent;
+}
+
+.type:hover {
+  background-color: transparent;
+}
+
+#timetable {
+  border:thin solid rgba(204,204,204,0.5);
+  border-radius: 5px;
+  border-collapse: collapse;
+  max-width: 400px;
+
+  td {
+      padding: 0.3em 0em;
+      border:thin solid rgba(204,204,204,0.5);
+      text-align: center;
+  }
+  td.selected {
+      background-color:rgb(22,40,76);
+  }
+  td.selecting {
+      background-color:rgb(236,236,236);
+  }
+  .tie {
+      width: 40px;
+      height: 40px;
+      &.selected{
+        background-color:rgb(22,40,76);
+      }
+      &.selecting{
+        background-color:rgb(236,236,236);
+      }
+  }
+}
+
+#registerForm{
+  textarea{
+    width: 100%;
+    max-width:400px;
+    height: 150px;
+  }
+  .btn-primary {
+    margin-top: 24px;
+  }
+}
+
+.inline-container-wrap {
+  margin-top: 24px;
+  label {margin-top: 3px;}
+  .inline-container {
+    select {
+      height: 1.3rem;
+      border-radius: 3px;
+    }
+    button {
+      margin: 0 0 0 10px;
+    }
+  }
+}
+
+.accordion-margin{ margin-top: 24px; margin-bottom: 0px;}
+.accordion-content{white-space: pre;}

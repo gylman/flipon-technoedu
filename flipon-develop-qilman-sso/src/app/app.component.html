@@ -1,0 +1,66 @@
+<clr-main-container class="main-container">
+  <div class="alert alert-app-level">
+  </div>
+  <clr-header id="header" class="header max-global" style="padding: 0 !important;" *ngIf="!isExtern">
+    <div class="branding">
+      <a class="nav-link">
+        <span class="title" (click)="navigator.home()">● Flip on</span>
+      </a>
+    </div>
+    <div class="header-nav" [clr-nav-level]="1">
+      <a class="nav-link" *ngIf="!meService.me?.isAdmin()" (click)="navigator.home()"><span class="nav-text">플립온 소개</span></a>
+      <a class="nav-link" *ngIf="!meService.me?.isAdmin()" (click)="navigator.intro()"><span class="nav-text">이용안내</span></a>
+      <a class="nav-link" *ngIf="!meService.me?.isAdmin()" (click)="navigator.qna()"><span class="nav-text">이용문의</span></a>
+      <a class="nav-link" *ngIf="!meService.me?.isAdmin()" (click)="navigator.review()"><span class="nav-text">이용후기</span></a>
+      <a class="nav-link" *ngIf="!meService.me?.isAdmin()" (click)="navigator.conference()"><span class="nav-text">화상회의실</span></a>
+<!--      <a class="nav-link" *ngIf="meService.me?.isStudent()" (click)="navigator.teachers()"><span class="nav-text">수업 신청</span></a>-->
+
+      <a class="nav-link" *ngIf="meService.me?.isAdmin()" (click)="navigator.admin()"><span class="nav-text">대시보드</span></a>
+      <a class="nav-link" *ngIf="meService.me?.isAdmin()" (click)="navigator.adminUsers()"><span class="nav-text">유저 현황</span></a>
+      <a class="nav-link" *ngIf="meService.me?.isAdmin()" (click)="navigator.adminCourses()"><span class="nav-text">강의 현황</span></a>
+      <a class="nav-link" *ngIf="meService.me?.isAdmin()" (click)="navigator.adminRequests()"><span class="nav-text">요청 현황</span></a>
+    </div>
+    <div class="header-actions">
+      <a class="nav-link" *ngIf="!meService.me" (click)="navigator.signIn()"><span class="nav-text">로그인</span></a>
+<!--      <clr-dropdown *ngIf="meService.me">-->
+<!--        <button class="nav-text" clrDropdownTrigger aria-label="open user profile">-->
+<!--          <clr-icon shape="bell" size="24" [ngClass]="meService.me?.hasNewNotification ? 'has-badge' : ''"></clr-icon>-->
+<!--        </button>-->
+<!--        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">-->
+<!--          <div clrDropdownItem *ngFor="let notification of meService.me?.notification">-->
+<!--            <p><a>{{notification.title}}</a></p>-->
+<!--            <p><a>{{notification.content}}</a></p>-->
+<!--          </div>-->
+<!--        </clr-dropdown-menu>-->
+<!--      </clr-dropdown>-->
+      <clr-dropdown *ngIf="meService.me">
+        <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
+          {{meService.me.name}}님!
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a *ngIf="!meService.me?.isAdmin()" (click)="navigator.me()" clrDropdownItem>내 정보</a>
+          <a *ngIf="meService.me?.isStudent()" (click)="navigator.courses()" clrDropdownItem>내 수업</a>
+          <a (click)="signOut()" clrDropdownItem>로그아웃</a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+  </clr-header>
+  <div class="content-container">
+    <main class="content-area">
+      <router-outlet></router-outlet>
+      <div id="footer" *ngIf="!isExtern">
+        <div class="section">
+          <span class="footer bold">플립온 고객센터 02 – 402 – 1764</span> (평일 9시 ~ 18시, 주말 및 공휴일 미운영) <br>
+          <span class="footer bold">플립온 카카오톡</span> 플립온 카카오톡 아이디 flipon365를 친구추가하시면 365일 자유로운 면담이 가능합니다.<br>
+          <div>
+            <h4 class="footer bold">주식회사 무화과</h4>
+            <p>사내이사: 최상일 | 사업자등록번호 889-86-01366 | 서울특별시 송파구 중대로 101, 동부썬빌 312호</p>
+          </div>
+        </div>
+      </div>
+    </main>
+<!--    <nav class="sidenav" [clr-nav-level]="2">-->
+<!--    </nav>-->
+  </div>
+</clr-main-container>

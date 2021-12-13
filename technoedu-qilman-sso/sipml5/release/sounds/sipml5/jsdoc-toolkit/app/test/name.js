@@ -1,0 +1,1 @@
+Response.prototype={text:function(){return this.nativeResponse.responseText}};

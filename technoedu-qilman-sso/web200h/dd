@@ -1,0 +1,122 @@
+1,2d0
+< <!DOCTYPE HTML>
+< <html>
+21,31c19,34
+<     function calltomcu(no, mode, id, layout, mcu) {
+<         var classInfo = new Object();
+<         classInfo.no = no;
+<         classInfo.mode = mode;
+<         classInfo.id = id;
+<         classInfo.layout = layout;
+<         classInfo.mcu = mcu;
+<         var jsonStr = JSON.stringify(classInfo);
+<         //console.log(jsonStr);
+<         //alert(jsonStr);
+<         window.WSMEDIA.startCall(jsonStr);
+---
+>     function connecttomcu(roomnumber) {
+> 
+>         var form = document.createElement("form");
+>         form.setAttribute("charset", "UTF-8");
+>         form.setAttribute("method", "Post");
+>         form.setAttribute("action", "../mypage/meeting_mentor.php");
+> 
+>         var formField = document.createElement("input");
+>         formField.setAttribute("type", "text");
+>         formField.setAttribute("name", "sipnumber");
+>         formField.setAttribute("value", roomnumber);
+>         form.appendChild(formField);
+>         
+>         document.body.appendChild(form);
+> 
+>         form.submit();
+74,83c77,78
+<                         <!--
+< 						<li><a href="index.html">홈</a></li>
+< 						<li><a href="left-sidebar.html">설정</a></li>
+< 						<li><a href="right-sidebar.html">화상통화</a></li>
+< 						<li><a href="index_en.html">English</a></li>
+< 						<li><a href="#" class="button special">로그인</a></li>
+<                         -->
+< 						<li><input type="button" value="1:1 모드" class="button special" onclick='javascript:callconnect();'></li>
+< 						<li><input type="button" value="전화번호부" class="button special" onclick='javascript:phoneBook();'></li>
+< 						<li><input type="button" value="장치 설정" class="button special" onclick='javascript:cameratest();'></li>
+---
+> 						<li><a href="../index.php" class="button special">로그아웃</a></li>
+> 						<li><a href="../mypage/device_test_mentor.php" class="button special">장치설정</a></li>
+92,108c87,98
+< 					<p>실시간 다자간 교육 시스템</a></p>
+< 					<ul class="actions">
+<                         <!--
+< 						<li>아이디</li>
+< 						<li><input type=text size=20 name='id'></li>
+< 						<li>암호</li>
+< 						<li><input type=password size=20 name='password'></li>						
+< 						<li><a href="javascript:callLogin();" class="button big special">전화걸기</a></li>						
+<                         -->
+<                         <li><input type="button" value="1번" class="button big special" onclick='javascript:calltomcu("0451000", "3", "mentor", "1", "115.68.14.22");' id="bt_0451000"></li>
+<                         <li><input type="button" value="2번" class="button big special" onclick='javascript:calltomcu("0452000", "3", "mentor", "1", "115.68.14.22");' id="bt_0452000"></li>
+<                         <li><input type="button" value="3번" class="button big special" onclick='javascript:calltomcu("0453000", "3", "mentor", "1", "115.68.14.22");' id="bt_0453000"></li>
+< 					</ul>
+< 					<ul class="actions">
+<                         <li><input type="button" value="테스트" class="button big special" onclick='javascript:calltomcu("0454000", "3", "mentor", "1", "115.68.14.22");' id="bt_0454000"></li>
+<                         <li><input type="button" value="EBS" class="button big special" onclick="location.href='https://oc.ebssw.kr'"></li>
+< 					</ul>
+---
+> 					<p>Video Service System</a></p>
+> 					<form name="formcall">
+> 					    <ul class="actions">
+>                             <li><input type="button" value="1 번" class="button big special" id="bt_0451000" onclick='connecttomcu("0451000");'></li>
+>                             <li><input type="button" value="2 번" class="button big special" id="bt_0452000" onclick='connecttomcu("0452000");'></li>
+>                             <li><input type="button" value="3 번" class="button big special" id="bt_0453000" onclick='connecttomcu("0453000");'></li>
+> 				    	</ul>
+> 					    <ul class="actions">
+>                             <li><input type="button" value="테스트" class="button big special" id="bt_0454000" onclick='connecttomcu("0454000");'></li>
+>                             <li><input type="button" value="EBS" class="button big special" onclick="location.href='https://oc.ebssw.kr'"></li>
+> 					    </ul>
+> 					</form>
+115,119c105,106
+<                     <!--
+< 					<h2>Mentor BOX Video Service System</h2>
+< 					<p>Mentor BOX 서비스에 오신것을 환영합니다. 연결 화면을 선택하세요.</p>
+<                     -->
+< 					<h3>Mentor BOX 서비스에 오신것을 환영합니다. 연결 화면을 선택하세요.</h3>
+---
+> 					<h2>Mentor BOX 서비스에 오신것을 환영합니다.</h2>
+> 					<p>연결할 방 번호를 선택하세요</p>
+121,143d107
+< 								
+< 			
+<                         <!--
+< 				<div class="container">
+< 				<div class="row">
+< 					<div class="4u">
+< 						<section class="special box"> <span class="fa fa-cloud-download fa-3x"></span>
+< 							<p class="box_text"><br>사용자를 추가하거나 정보를 바꿀 수 있습니다. 관리자만 이 기능을 사용할 수 있습니다.</p>
+< 						</section>
+< 					</div>
+< 					<div class="4u">
+< 						<section class="special box"><span class="fa fa-cogs fa-3x"></span>
+< 							<p class="box_text"><br>단말의 세팅값과 환경을 바꿀 수 있습니다. 네트워크, 화면, 코덱 정보등을 설정합니다.</p>
+< 						</section>
+< 					</div>
+< 					<div class="4u">
+< 						<section class="special box"> <span class="fa fa-users fa-3x"></span>
+< 							<p class="box_text"><br>강의 리스트에서 화상회의를 연결할 수 있습니다. 해당 강의 리스트를 검색하거나 확인하세요. </p>
+< 						</section>
+< 					</div>
+< 				</div>
+< 				</div>
+<                         -->
+155a120
+>                         <!--
+158a124
+>                         -->
+165,166c131,132
+< var roomList = ["0451000", "0452000", "0453000", "0454000"];
+< var roomNameList = ["1번", "2번", "3번", "테스트"];
+---
+> var roomList = ["0451000", "0452000", "0453000", "0454000", "0455000"];
+> var roomNameList = ["1 번", "2 번", "3 번", "4 번", "테스트"];
+203d168
+< </html>

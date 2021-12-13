@@ -1,0 +1,1 @@
+JSDOC.PluginManager.registerPlugin("JSDOC.frameworkPrototype",{onPrototypeClassCreate:function(a){var c="";if(a.comment){c=a.comment}var b=c+"/** @name "+a.name+"\n@constructor\n@scope "+a.name+".prototype */";b=b.replace(/\*\/\/\*\*/g,"\n");a.addComment.data=b}});

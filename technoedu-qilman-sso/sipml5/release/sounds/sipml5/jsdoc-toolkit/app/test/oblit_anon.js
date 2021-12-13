@@ -1,0 +1,1 @@
+opt=Opt.get(arguments,{d:"directory",c:"conf","D[]":"define"});opt.conf={keep:true,base:getBase(this,{p:properties})};

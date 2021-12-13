@@ -1,0 +1,45 @@
+service: flipon
+plugins:
+  - serverless-apigw-binary
+  - serverless-offline
+  - serverless-domain-manager
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 192
+  region: ap-northeast-2
+  timeout: 10
+  stage: ${opt:stage, 'develop'}
+package:
+  exclude:
+    - ./**
+  include:
+    - 'node_modules/aws-serverless-express/**'
+    - 'node_modules/binary-case/**'
+    - 'node_modules/type-is/**'
+    - 'node_modules/media-typer/**'
+    - 'node_modules/mime-types/**'
+    - 'node_modules/mime-db/**'
+    - 'dist/**'
+    - 'lambda.js'
+custom:
+  domains:
+    develop: dev.flip-on.com
+    production: next.flip-on.com
+
+  customDomain:
+    basePath: ""
+    domainName: ${self:custom.domains.${self:provider.stage}, self:custom.domains.develop}
+    stage: "${self:provider.stage}"
+    createRoute53Record: true
+
+  apigwBinary:
+    types:
+      - '*/*'
+functions:
+  front:
+    handler: lambda.handler
+    events:
+      - http: GET {proxy+}
+      - http: GET /
+    provisionedConcurrency: 5

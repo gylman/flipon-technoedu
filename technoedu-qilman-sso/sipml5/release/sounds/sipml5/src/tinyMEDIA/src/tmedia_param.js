@@ -1,0 +1,1 @@
+var tmedia_param_type_e={CODEC:0,SESSION:1,MANAGER:2};function tmedia_param(b,c,a,d){this.e_type=b;this.e_media_type=c;this.s_key=a;this.o_value=d};

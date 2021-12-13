@@ -1,0 +1,1 @@
+var tsip_event_options_type_e={I_OPTIONS:0,AO_OPTIONS:1};function tsip_event_options(d,a,c,b,e){this.__proto__=new tsip_event(d,a,c,b,tsip_event_type_e.OPTIONS);this.e_type=e};

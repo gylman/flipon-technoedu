@@ -1,0 +1,1 @@
+Array.prototype.some=function(){};Array.prototype.filter=function(){};Queue=function(){};rewind=function(){};

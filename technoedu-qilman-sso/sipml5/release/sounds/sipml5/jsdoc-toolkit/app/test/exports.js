@@ -1,0 +1,1 @@
+var mxn={};(function(){var a=mxn.Map=function(){};a.prototype.doThings=function(){}})();

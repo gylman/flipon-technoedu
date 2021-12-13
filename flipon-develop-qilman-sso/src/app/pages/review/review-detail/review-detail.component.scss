@@ -1,0 +1,17 @@
+.pull-right {
+  display: inline;
+  position: absolute;
+  right: 10px;
+}
+
+.buttons-on-right {
+  display: block;
+  text-align: right;
+  .rightmost-button {
+    margin-right: 0px;
+  }
+}
+
+:host ::ng-deep #attachment {
+  display: none;
+}

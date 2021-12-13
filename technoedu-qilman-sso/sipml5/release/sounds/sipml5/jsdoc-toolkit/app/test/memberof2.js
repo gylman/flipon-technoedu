@@ -1,0 +1,1 @@
+function Foo(){function d(f,e){}var b=function(f,e){};function c(e,f){}function a(){this.fipple=function(e){}}}var blat=function(){};

@@ -1,0 +1,1 @@
+String.prototype.reverse=function(){};String.prototype.reverse.utf8=function(){};Function.count=function(){};Function.count.reset=function(){};count.getValue=function(){};getSig=function(){};Function.prototype.getProps=function(){};

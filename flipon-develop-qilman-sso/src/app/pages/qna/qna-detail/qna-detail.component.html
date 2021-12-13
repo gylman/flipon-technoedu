@@ -1,0 +1,63 @@
+<ng-container *ngIf="qnaData; then ifCase else elseCase"></ng-container>
+
+<ng-template #elseCase>
+  <div class="clr-row">
+    <div class="clr-col-md-6 clr-col-sm-8 clr-col-md-offset-3 clr-col-sm-offset-2">
+      <div class="logo">flip-on</div>
+      <div class="clr-col-sm-12">
+        게시물을 찾을 수 없습니다.
+      </div>
+      <button class='btn btn-primary' (click)='goback()'>뒤로가기</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #ifCase>
+  <div class='clr-row'>
+    <div class='clr-col-md-10' style="padding:0px;">
+      <div class="card">
+        <div class="card-header">
+          <b>{{qnaData!.title}}</b>
+          <small class="pull-right"><b>작성자: {{qnaData!.userName}}</b></small>
+        </div>
+        <div class="card-block">
+          <div [innerHTML]="qnaData!.question"></div>
+          <hr>
+          <ng-container *ngIf="editAnswer; then editor else showAnswer"></ng-container>
+        </div>
+        <footer class="card-footer">
+          <div class="center">
+            작성일: {{qnaData!.date| date:'yyyy-M-d HH:mm'}}
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #showAnswer>
+  <ng-container *ngIf="qnaData!.answer; then answer else noAnswer"></ng-container>
+  <div class="buttons-on-right">
+    <button class='btn btn-primary' (click)='startEditAnswer()'>답변하기</button>
+    <button class='btn btn-danger-outline rightmost-button' (click)='goback()'>뒤로가기</button>
+  </div>
+</ng-template>
+
+<ng-template #answer>
+  <b>{{qnaData!.answer!.title}}</b>
+  <small class="pull-right">
+    {{qnaData!.answer!.date| date:'yyyy-M-d HH:mm'}}
+  </small>
+  <div [innerHTML]='qnaData!.answer!.content'></div>
+</ng-template>
+
+<ng-template #noAnswer>
+  아직 답변이 없습니다.
+</ng-template>
+
+
+<ng-template #editor>
+  <app-posting [postData]='postData' [onSubmit]='onSubmit' [onCancel]='onCancel' [submitText]='"답변등록"'
+    [cancelText]='"취소"'></app-posting>
+</ng-template>

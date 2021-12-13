@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+
+var output;
+var array_test = [ ];
+
+function init()
+{
+    output = document.getElementById("output");
+    testaSync();
+}
+
+function testaSync()
+{
+    var newClient = { a: "1", b: "2"};
+
+    array_test.push(newClient);
+
+    try {
+        console.log(array_test[1].a);
+    } catch(e) {
+        console.log("Uncaught type error");
+    }
+
+    console.log("after");
+
+}
+
+
+window.addEventListener("load", init, false);
+
+</script>
+
+<h2>Async Test</h2>
+
+<div id="output"></div>
+

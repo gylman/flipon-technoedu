@@ -1,0 +1,1 @@
+function valueOf(a){}function toString(a){}function toSource(a){}function constructor(a){};

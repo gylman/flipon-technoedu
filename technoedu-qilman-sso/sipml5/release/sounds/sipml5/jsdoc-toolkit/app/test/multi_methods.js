@@ -1,0 +1,1 @@
+function flavor(a,b){if(arguments.length>1){flavor[a]=b}else{if(arguments.length==1){return flavor[a]}else{return flavor}}};

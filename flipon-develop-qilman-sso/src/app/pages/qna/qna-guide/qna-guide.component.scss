@@ -1,0 +1,75 @@
+:host ::ng-deep .section-title {
+  font-size: 1.075rem;
+  font-family: "NotoSansKr-bold";
+  color: black;
+  margin: 0px;
+  span {
+    font-size: 1.4rem;
+    font-family: "SCoreDream";
+    font-weight: 900;
+    color: #16284c;
+  }
+}
+
+app-faq {margin-bottom: 40px;}
+
+.clr-row{
+  justify-content: center;
+  margin-top: 40px;
+  .section-title {align-self: flex-start;}
+}
+
+.qna-guide-step {
+  text-align: center;
+  display: inline;
+  margin: 0 2vw;
+}
+.circle{
+  border-radius: 50%;;
+  background-color: #16284c;
+  text-align: center;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  width: 220px;
+  height:220px;
+  font-size: 20px;
+  @media(max-width:600px) {
+    font-size: 15px;
+    width: 165px;
+    height:165px;
+  }
+
+  h2 {
+    font-family: 'SCoreDream';
+    font-weight: 800;
+    font-size: 1.4em;
+    color: white;
+    height:fit-content;
+    margin:0em;
+  }
+  p{
+    font-family: "NotoSansKR-regular";
+    font-size: 1.075em;
+    color: white;
+    height: fit-content;
+    margin: .5em 0 1em 0;
+  }
+}
+.qna-guide-detail {
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  span, a {
+    padding: 3px;
+    width: fit-content;
+    font-family: 'NotoSansKR-regular';
+    font-size: 18px;
+    color: black;
+    @media(max-width:600px) {font-size: 13.5px;}
+  }
+  a {border:solid 1px #16284c; color: #16284c;}
+}

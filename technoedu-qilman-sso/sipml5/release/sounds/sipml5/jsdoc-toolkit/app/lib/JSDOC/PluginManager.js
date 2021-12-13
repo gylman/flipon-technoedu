@@ -1,0 +1,1 @@
+JSDOC.PluginManager={};JSDOC.PluginManager.registerPlugin=function(b,a){if(!defined(JSDOC.PluginManager.plugins)){JSDOC.PluginManager.plugins={}}JSDOC.PluginManager.plugins[b]=a};JSDOC.PluginManager.run=function(b,c){for(var a in JSDOC.PluginManager.plugins){if(defined(JSDOC.PluginManager.plugins[a][b])){JSDOC.PluginManager.plugins[a][b](c)}}};

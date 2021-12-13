@@ -1,0 +1,65 @@
+<div id='mentorbox-wrap'>
+  <div class="clr-row" id='inner-block'>
+    <div class='clr-col-10'>
+      <img id="main_img" src="/assets/images/메인 이미지_이미지.png">
+    </div>
+    <div class="clr-col-10 rounded-box white-box" *ngIf="loading" style="padding: 50px 0; text-align: center;">
+      <clr-spinner></clr-spinner>
+    </div>
+    <div class="clr-row" *ngIf="!loading" style="justify-content: center; width: 100%;">
+      <ng-container *ngIf="!meService; then needLogin else afterLogin"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #needLogin>
+  <div class="clr-col-10 rounded-box white-box">
+    <div class="clr-row">
+      <div class="clr-col-2"></div>
+      <div class="clr-col-8 rounded-box navy-box">로그인이 필요합니다</div>
+      <div class="clr-col-2"></div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #afterLogin>
+  <ng-container *ngIf="meService.me?.isAdmin(); else notAdmin">
+    <div class="clr-col-10 rounded-box white-box">
+      <div class="clr-row">
+        <div class="clr-col-2"></div>
+        <div class="clr-col-8 rounded-box navy-box">관리자는 사용할 수 없습니다</div>
+        <div class="clr-col-2"></div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+<ng-template #notAdmin>
+  <ng-container *ngIf="!courses.length; else standardOutput">
+    <div class="clr-col-10 rounded-box white-box">
+      <div class="clr-row">
+        <div class="clr-col-2"></div>
+        <div class="clr-col-8 rounded-box navy-box">진행중인 수업이 없습니다</div>
+        <div class="clr-col-2"></div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+<ng-template #standardOutput>
+  <ng-container *ngFor='let course of courses'>
+    <div class="clr-col-10 rounded-box white-box">
+      <div class="clr-row" style="justify-content: space-evenly;">
+        <div class="clr-col-3"></div>
+        <div class="clr-col-6 rounded-box navy-box">{{myName}} 학생 - {{course.teacher.name}} 선생님</div>
+        <div class="clr-col-3"></div>
+        <div class="clr-col-3 rounded-box navy-box clickable" (click)="enterRoom(course.room)">강의실 입장</div>
+        <div class="clr-col-3 rounded-box navy-box clickable"
+          (click)="navigator.outerLink('https://survey.flip-on.com/course/student.html')">설문 조사</div>
+        <!-- <div class="clr-col-3 rounded-box navy-box clickable" (click)="startFeedback()">설문 조사</div> -->
+        <div class="clr-col-3 rounded-box navy-box clickable" (click)="checkDevice()">장비 점검</div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #feedback>
+  <app-feedback></app-feedback>
+</ng-template>

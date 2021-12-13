@@ -1,0 +1,317 @@
+<div *ngIf="!type">
+  <h1 class="title">회원가입</h1>
+  <div style="width: 100%; display: flex; justify-content: center; flex-flow: row wrap;">
+    <a (click)="changeType(Type.student)">
+      <div class="type" style="background-image: url('/assets/images/signup_student.png');"></div>
+    </a>
+    <a (click)="changeType(Type.teacher)">
+      <div class="type" style="background-image: url('/assets/images/signup_teacher.png');"></div>
+    </a>
+  </div>
+</div>
+<div *ngIf="type" (mouseup)="mouseUpOutside()">
+  <h1 class="title">{{type}} 회원가입</h1>
+  <form clrForm [formGroup]="form" clrLabelSize="4" id="registerForm">
+    <clr-input-container>
+      <label class="clr-col-12 clr-col-sm-3">이메일(ID)*</label>
+      <input clrInput type="email" placeholder="이메일" formControlName="email" class="clr-col-12 clr-col-sm-9" />
+      <clr-control-error *clrIfError="'minlength'; error as err">Must be at least {{ err.requiredLength }} characters
+      </clr-control-error>
+    </clr-input-container>
+
+    <clr-input-container>
+      <label class="clr-col-12 clr-col-sm-3">이름*</label>
+      <input clrInput type="text" placeholder="이름" formControlName="name" class="clr-col-12 clr-col-sm-9" />
+    </clr-input-container>
+
+    <clr-input-container>
+      <label class="clr-col-12 clr-col-sm-3">소속 코드</label>
+      <input clrInput type="text" placeholder="소속 코드" formControlName="part" class="clr-col-12 clr-col-sm-9" />
+    </clr-input-container>
+
+    <clr-password-container>
+      <label class="clr-col-12 clr-col-sm-3">비밀번호*</label>
+      <input clrPassword placeholder="비밀번호 (6자 이상)" formControlName="password" class="clr-col-12 clr-col-sm-9" />
+<!--      <clr-control-helper>Helper text</clr-control-helper>-->
+<!--      <clr-control-error *clrIfError="'required'">This is a required field</clr-control-error>-->
+    </clr-password-container>
+
+    <clr-password-container>
+      <label class="clr-col-12 clr-col-sm-3">비밀번호 확인*</label>
+      <input clrPassword placeholder="비밀번호 확인" formControlName="confirmPassword" class="clr-col-12 clr-col-sm-9" />
+    </clr-password-container>
+
+    <div formGroupName="auth">
+      <input hidden formControlName="smsId" #smsId>
+    </div>
+
+    <div class='clr-row inline-container-wrap'>
+      <label class="clr-col-12 clr-col-sm-3 clr-control-label">전화번호*</label>
+      <div class="clr-col-12 clr-col-sm-8 inline-container">
+        <select formControlName="countryCode" #countryCode>
+          <option value="+82">+82</option>
+          <option value="+1">+1</option>
+          <option value="+84">+84</option>
+        </select>
+        <input type="tel" placeholder="전화번호" formControlName="phone" class="clr-input" #phone>
+        <button class="btn primary" [disabled]="smsId.value.length > 0" (click)="sendSMS(countryCode.value, phone.value)">인증번호 발송</button>
+      </div>
+    </div>
+    <div class='clr-row inline-container-wrap'>
+      <label class="clr-col-12 clr-col-sm-3 clr-control-label">인증번호*</label>
+      <div class="clr-col-12 clr-col-sm-8 inline-container">
+        <input class="clr-input" type="number" placeholder="인증번호" #smsCode>
+        <button class="btn" [disabled]="smsId.value.length > 0" (click)="verifySMS(smsCode.value)">인증</button>
+      </div>
+    </div>
+
+    <div formGroupName='profile' ngControlDefault>
+
+      <clr-input-container>
+        <label class="clr-col-12 clr-col-sm-3">생년월일*</label>
+        <input clrInput type="number" placeholder="910512" formControlName="birthday" class="clr-col-12 clr-col-sm-9" />
+      </clr-input-container>
+
+      <div formGroupName='school' ngControlDefault>
+        <div *ngIf="type === Type.student">
+          <clr-input-container>
+            <label class="clr-col-12 clr-col-sm-3">소속 학교*</label>
+            <input clrInput type="text" placeholder="서울고등학교" formControlName="name" class="clr-col-12 clr-col-sm-9" />
+          </clr-input-container>
+        </div>
+
+        <div *ngIf="type === Type.teacher">
+          <clr-input-container>
+            <label class="clr-col-12 clr-col-sm-3">소속 학교*</label>
+            <input clrInput type="text" placeholder="서울대학교" formControlName="name" class="clr-col-12 clr-col-sm-9" />
+          </clr-input-container>
+          <clr-input-container>
+            <label class="clr-col-12 clr-col-sm-3">전공*</label>
+            <input clrInput type="text" placeholder="경영학과" formControlName="major" class="clr-col-12 clr-col-sm-9" />
+          </clr-input-container>
+        </div>
+
+      </div>
+
+      <div formGroupName='address' ngControlDefault>
+        <div class='clr-row inline-container-wrap'>
+          <label class="clr-col-12 clr-col-sm-3 clr-control-label">주소*</label>
+          <div class="clr-col-12 clr-col-sm-8 inline-container">
+            <input class="clr-input" type="text" placeholder="주소" formControlName="primary" />
+            <button style="margin:5px;" class="btn">주소 검색</button>
+          </div>
+        </div>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-3">상세*</label>
+          <input clrInput type="text" placeholder="302호" formControlName="secondary" class="clr-col-12 clr-col-sm-9" />
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-3">우편번호*</label>
+          <input clrInput type="text" placeholder="" formControlName="code" class="clr-col-12 clr-col-sm-9" />
+        </clr-input-container>
+      </div>
+    </div>
+
+    <div *ngIf="type === Type.student" ngControlDefault>
+      <div formGroupName="profile">
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-3">보호자 연락처*</label>
+          <input clrInput type="number" placeholder="보호자 연락처" formControlName="parent"
+            class="clr-col-12 clr-col-sm-9" />
+        </clr-input-container>
+      </div>
+      <div formGroupName="payment">
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-3">현금영수증 연락처</label>
+          <input clrInput type="number" placeholder="현금영수증 연락처" formControlName="receipt"
+            class="clr-col-12 clr-col-sm-9" />
+        </clr-input-container>
+      </div>
+    </div>
+
+    <div *ngIf="type === Type.teacher" ngControlDefault>
+      <div formGroupName='profile'>
+<!--        <div class='clr-row inline-container-wrap' formArrayName="subject">-->
+<!--          <label class="clr-col-12 clr-col-sm-3 clr-control-label">수업 가능 과목</label>-->
+<!--          <div class="clr-col-12 clr-col-sm-8 inline-container clr-control-container clr-control-inline">-->
+<!--            <clr-checkbox-wrapper *ngFor="let subject of subjectsArray.controls; let i = index">-->
+<!--              <label>{{values(CourseSubject)[i]}}</label>-->
+
+<!--              <input type="checkbox" clrCheckbox [formControlName]="i"/>-->
+<!--            </clr-checkbox-wrapper>-->
+<!--          </div>-->
+<!--        </div>-->
+        <clr-select-container>
+          <label class="clr-col-12 clr-col-sm-3">수업 가능 과목*</label>
+          <select class="clr-col-12 clr-col-sm-9" clrSelect formControlName="subject" multiple required>
+            <option [value]="subject" *ngFor="let subject of keys(CourseSubject)">{{CourseSubject[subject]}}</option>
+          </select>
+        </clr-select-container>
+      </div>
+
+      <div formGroupName='payment'>
+        <clr-select-container>
+          <label class="clr-col-12 clr-col-sm-3">은행*</label>
+          <select class="clr-col-12 clr-col-sm-9" clrSelect formControlName="bank" required>
+            <option [value]="">은행을 선택하세요</option>
+            <option [value]="bank" *ngFor="let bank of availableBanks">{{bank}}</option>
+          </select>
+        </clr-select-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-3">계좌번호*</label>
+          <input clrInput type="number" placeholder="" formControlName="num" class="clr-col-12 clr-col-sm-9" />
+        </clr-input-container>
+        <div class='clr-row inline-container-wrap'>
+          <label class="clr-col-12 clr-col-sm-3 clr-control-label" for="schoolCard">재학증명서*</label>
+          <div class="clr-col-12 clr-col-sm-8 inline-container">
+            <input type="file" id="schoolCard" (change)="handleSchoolCard($event.target.files)"
+              accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" class="clr-col-12 clr-col-sm-9">
+          </div>
+        </div>
+        <div class='clr-row inline-container-wrap'>
+          <label class="clr-col-12 clr-col-sm-3 clr-control-label" for="profilePhoto">프로필 사진*</label>
+          <div class="clr-col-12 clr-col-sm-8 inline-container">
+            <input type="file" id="profilePhoto" (change)="handleProfilePhoto($event.target.files)"
+              accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" class="clr-col-12 clr-col-sm-9">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName='profile'>
+      <div class='clr-row clr-form-control inline-container-wrap'>
+        <label class="clr-col-12 clr-col-sm-3 clr-control-label">모니터 및 설치 공간*</label>
+        <div class="clr-col-12 clr-col-sm-8 inline-container clr-control-container clr-control-inline">
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio required value='true' formControlName='hasMonitor' />
+            <label>있음</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio required value='false' formControlName='hasMonitor' />
+            <label>없음</label>
+          </clr-radio-wrapper>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="type === Type.student" ngControlDefault>
+      <div formGroupName='profile'>
+        <div formGroupName='want'>
+          <clr-textarea-container>
+            <label class="clr-col-12 clr-col-sm-3">원하는 수업 내용<br>(진도 범위, 수업 방식 등)</label>
+            <textarea class="clr-col-12 clr-col-sm-9" clrTextarea formControlName="courseStyle"
+              placeholder="자유롭게 입력해주세요."></textarea>
+          </clr-textarea-container>
+          <clr-textarea-container>
+            <label class="clr-col-12 clr-col-sm-3">원하는 선생님<br>학교/학과/특징</label>
+            <textarea class="clr-col-12 clr-col-sm-9" clrTextarea formControlName="type"
+              placeholder="자유롭게 입력해주세요."></textarea>
+          </clr-textarea-container>
+          <!--          <clr-textarea-container>-->
+          <!--            <label class="clr-col-12 clr-col-sm-3">자신의 성적<br>(내신/모의고사 등급)</label>-->
+          <!--            <textarea class="clr-col-12 clr-col-sm-9" clrTextarea formControlName="grade"-->
+          <!--                      placeholder="자유롭게 입력해주세요."></textarea>-->
+          <!--          </clr-textarea-container>-->
+          <clr-textarea-container>
+            <label class="clr-col-12 clr-col-sm-3">희망 수업 시간</label>
+            <textarea class="clr-col-12 clr-col-sm-9" clrTextarea formControlName="timeInWeek"
+              placeholder="주 2회, 2시간씩"></textarea>
+          </clr-textarea-container>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="type === Type.teacher" formGroupName='profile' ngControlDefault>
+      <clr-textarea-container>
+        <label class="clr-col-12 clr-col-sm-3">자신의 수업 방식</label>
+        <textarea clrTextarea class="clr-col-12 clr-col-sm-9" formControlName="courseStyle"
+          placeholder="자유롭게 입력해주세요."></textarea>
+      </clr-textarea-container>
+      <clr-textarea-container>
+        <label class="clr-col-12 clr-col-sm-3">자기 소개</label>
+        <textarea clrTextarea class="clr-col-12 clr-col-sm-9" formControlName="introduction"
+          placeholder="자유롭게 입력해주세요."></textarea>
+      </clr-textarea-container>
+    </div>
+
+    <div class="clr-row" style="margin-top: 24px;" formGroupName='profile'>
+      <label class="clr-col-12 clr-col-sm-3 clr-control-label">수업 가능 시간</label>
+      <table id="timetable" class="clr-col-12 clr-col-sm-9">
+        <thead>
+        <tr>
+          <th></th>
+          <th class="tie">월</th>
+          <th class="tie">화</th>
+          <th class="tie">수</th>
+          <th class="tie">목</th>
+          <th class="tie">금</th>
+          <th class="tie">토</th>
+          <th class="tie">일</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let _ of [].constructor(15); index as i">
+          <tr>
+            <td>{{i + 9}}시</td>
+            <td *ngFor="let _ of [].constructor(7); index as j" class="tie" (mousedown)="rangeMouseDown(i + 9, j, $event);"
+                (mouseup)="rangeMouseUp(i + 9, j, $event);" (mouseenter)="rangeMouseMove(i + 9, j);"
+                [class.selected]="timeIncludes(timeSelected, i + 9, j)" [class.selecting]="timeIncludes(timeSelecting, i + 9, j)"></td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <clr-accordion class="accordion-margin">
+      <clr-accordion-panel (click)="enableAgreementCheckbox()">
+        <clr-accordion-title>이용약관*</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded class="accordion-content">{{agreementContent}}</clr-accordion-content>
+      </clr-accordion-panel>
+    </clr-accordion>
+    <clr-checkbox-container>
+      <clr-checkbox-wrapper>
+        <label>이용약관을 읽었으며, 이에 동의합니다.</label>
+        <input type="checkbox" clrCheckbox formControlName="agreement"
+          [attr.disabled]="agreementCheckboxDisabled === true ? 'disabled' : null" />
+      </clr-checkbox-wrapper>
+      <clr-control-helper>이용약관을 읽으신 후 확인 가능합니다.</clr-control-helper>
+      <clr-control-error>이용약관에 동의해야합니다.</clr-control-error>
+    </clr-checkbox-container>
+
+    <clr-accordion class="accordion-margin">
+      <clr-accordion-panel (click)="enablePrivacyCheckbox()">
+        <clr-accordion-title>개인정보처리방침*</clr-accordion-title>
+        <clr-accordion-content *clrIfExpanded class="accordion-content">{{privacyContent}}</clr-accordion-content>
+      </clr-accordion-panel>
+    </clr-accordion>
+    <clr-checkbox-container class="clr-control-inline">
+      <clr-checkbox-wrapper>
+        <label>개인정보처리방침을 읽었으며, 이에 동의합니다.</label>
+        <input type="checkbox" clrCheckbox formControlName="privacy"
+          [attr.disabled]="privacyCheckboxDisabled === true ? 'disabled' : null" />
+      </clr-checkbox-wrapper>
+      <clr-control-helper>개인정보처리방침을 읽으신 후 확인 가능합니다.</clr-control-helper>
+      <clr-control-error>개인정보 이용에 동의해야합니다.</clr-control-error>
+    </clr-checkbox-container>
+
+    <div *ngIf="type === Type.teacher" formGroupName='profile' ngControlDefault>
+      <clr-radio-container clrInline>
+        <label class="clr-col-12 clr-col-md-12">
+          학생들이 선생님 소개를 확인할 때 사진이 있다면 더욱 신뢰감을 줄 수 있습니다.<br>
+          홈페이지에 선생님 사진을 게시하는 것에 동의하시겠습니까?
+        </label>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio required value='true' formControlName='isPublic' />
+          <label>있음</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio required value='false' formControlName='isPublic' />
+          <label>없음</label>
+        </clr-radio-wrapper>
+        <clr-control-error>This field is required!</clr-control-error>
+      </clr-radio-container>
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="submit()">회원가입</button>
+<!--    {{form.value | json }}-->
+  </form>
+</div>

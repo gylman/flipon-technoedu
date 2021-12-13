@@ -1,0 +1,1 @@
+function Document(a,c,b){};

@@ -1,0 +1,155 @@
+@import "variables";
+@import "./assets/fonts/fonts";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fafcfe !important;
+  overflow-x: hidden;
+  font-weight: 500 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif !important;
+}
+
+*:focus:not(.focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+//body {
+//  padding-top: $header_height;
+//}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+div {
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $light_black;
+}
+
+div.main.segment {
+  box-shadow: none !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  cursor: pointer;
+}
+
+.max-global {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1440px;
+  padding: 1.2rem;
+}
+
+
+.main.segment {
+  max-width: 720px;
+  padding: 0;
+  margin: 0 auto 40px auto !important;
+  border: $border solid 0.2px;
+}
+
+h1.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: black;
+  text-align: center;
+}
+
+.video_wrap {
+  position: relative;
+  /* 16:9 */
+  padding: 0 0 56.25% !important;
+  height: 0;
+}
+
+.level {
+  width: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-tabs .nav{
+  display: flex;
+   .nav-item{
+    margin-right: 0px;
+    flex-grow: 1;
+    text-align: center;
+    border: 1px solid #cfccc8;
+    button {
+      &.active{
+        box-shadow: none;
+        background-color: $navy;
+        color: white;
+      }
+      &:hover{
+        box-shadow: none;
+      }
+      width: 100%;
+      font-size: 1em;
+      @media(max-width:768px) {font-size: 0.8rem}
+      @media(max-width:480px) {font-size: 0.75rem}
+      @media(max-width:430px) {font-size: 0.5rem}
+      @media(max-width:370px) {font-size: 0.45rem}
+      font-family: "SCoreDream";
+      font-weight: 500;
+    }
+  }
+}
+
+.custom-accordion{
+  margin-top: 10px;
+
+  color: black;
+  .clr-accordion-header{
+    background-color: #f2f2f2;
+    border-style: none;
+    &.active{ background-color: #f2f2f2;}
+    .clr-accordion-title {
+      font-family: "NotoSansKr-regular";
+      font-size: .8rem;
+      @media(max-width:480px) {font-size: 0.75rem}
+      @media(max-width:430px) {font-size: 0.6rem; line-height: .8rem;}
+      span {
+        font-family: "SCoreDream";
+        font-weight: 900;
+        color: $navy;
+        font-size: .9rem;
+        line-height: 1rem;
+        @media(max-width:480px) {font-size: 0.85rem}
+        @media(max-width:430px) {font-size: 0.7rem; line-height: .9rem;}
+      }
+    }
+    span.clr-accordion-status{ display: none;}
+  }
+  .clr-accordion-content{
+    font-family: "NotoSansKr-regular";
+    font-size: .8rem;
+    @media(max-width:480px) {font-size: 0.75rem}
+    @media(max-width:430px) {font-size: 0.6rem; line-height: .8rem;}
+    border-style: none;
+  }
+}

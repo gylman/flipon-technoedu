@@ -1,0 +1,1 @@
+var Person=makeClass({initialize:function(a){this.name=a},say:function(a){return this.name+" says: "+a}});

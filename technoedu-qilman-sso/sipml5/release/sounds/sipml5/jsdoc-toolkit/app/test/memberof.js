@@ -1,0 +1,1 @@
+pack=function(){this.init=function(){};function a(){}};pack.build=function(a){};pack.install=function(){};pack.install.overwrite=function(){};clean=function(){};install=function(){};

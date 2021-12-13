@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>안녕하세요. 화상 서비스에 오신걸 환영합니다.</title>
+
+<script src="../js/jquery/jquery-1.11.1.min.js"></script>
+<script src="./dscomm.js"></script>
+<style>
+.ui-body-c, .ui-overlay-c { background:#FFF; }
+div { 
+   border: 1px dotted blue;
+}
+</style>
+
+<script type="text/javascript">
+var searchUserList = null;
+
+function OnDSCommMsg( msg )
+{
+	console.log(msg);
+	if ( msg.cmd == "ASPListResp" )
+	{
+	}
+	else if ( msg.cmd == "SearchUserResp" )
+	{
+		searchUserList = msg.data.user_list;
+	}
+}
+
+DSCommInit("ws://61.252.54.66:10066", OnDSCommMsg);
+
+</script>
+
+</head>
+<body>
+----------------------- Get ASP List -------------------------
+</br>
+<button onclick="doServiceList()">GetASPList</button>
+<div id="asplist">
+</div>
+
+
+<input type="text" size=20 id="searchVal">
+<button onclick="doSearchUser()">SearchUser</button>
+<button onclick="doInviteUser()">InviteUser</button>
+
+
+<script type="text/javascript">
+function doServiceList()
+{
+	DSSendGetASPList();
+}
+
+function doSearchUser()
+{
+	DSSendSearchUser($('#searchVal').val());
+}
+
+function doInviteUser()
+{
+	DSSendInviteUser('최성철', 'scchoi@wooksungmedia.com', '욱성미디어', '개발', searchUserList[0], '회의방테스트', '0901000@61.252.54.66', '어서오세요. 회의방에');
+}
+
+</script>
+
+</body>
+</html>

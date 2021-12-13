@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Mentor BOX</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+
+<script type="text/javascript" charset='utf-8'>
+    function calltomcu(no, mode, id, layout, mcu) {
+        var classInfo = new Object();
+        classInfo.no = no;
+        classInfo.mode = mode;
+        classInfo.id = id;
+        classInfo.layout = layout;
+        classInfo.mcu = mcu;
+        var jsonStr = JSON.stringify(classInfo);
+        //console.log(jsonStr);
+        //alert(jsonStr);
+        window.WSMEDIA.startCall(jsonStr);
+    }
+
+    function cameratest() {
+        window.WSMEDIA.cameraTest();
+    }
+
+    function changeUrl() {
+        window.WSMEDIA.changeUrl();
+    }
+
+    function captureCamera() {
+        window.WSMEDIA.captureCamera();
+    }
+
+    function phoneBook() {
+        window.WSMEDIA.phoneBook();
+    }
+
+    function webUrl() {
+        window.WSMEDIA.webUrl();
+    }
+
+    function captureUrl() {
+        window.WSMEDIA.captureUrl();
+    }
+
+    function serverSetting() {
+        window.WSMEDIA.serverSetting();
+    }
+
+    function callconnect() {
+        window.WSMEDIA.callconnect();
+    }
+</script>
+
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="#">Mentor BOX</a></h1>
+				<nav id="nav">
+					<ul>
+                        <!--
+						<li><a href="index.html">홈</a></li>
+						<li><a href="left-sidebar.html">설정</a></li>
+						<li><a href="right-sidebar.html">화상통화</a></li>
+						<li><a href="index_en.html">English</a></li>
+						<li><a href="#" class="button special">로그인</a></li>
+						<li><a href="index2.html">서버(2)로 가기 </a></li>
+                        -->
+						<li><input type="button" value="1:1 모드" class="button special" onclick='javascript:callconnect();'></li>
+						<li><input type="button" value="전화번호부" class="button special" onclick='javascript:phoneBook();'></li>
+						<li><input type="button" value="장치 설정" class="button special" onclick='javascript:cameratest();'></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner1">
+				<div class="inner">
+					<h2>Mentor BOX System</h2>
+					<p>실시간 다자간 교육 시스템</a></p>
+					<ul class="actions">
+                        <!--
+						<li>아이디</li>
+						<li><input type=text size=20 name='id'></li>
+						<li>암호</li>
+						<li><input type=password size=20 name='password'></li>						
+						<li><a href="javascript:callLogin();" class="button big special">전화걸기</a></li>						
+                        -->
+                        <li><input type="button" value="1번" class="button big special" onclick='javascript:calltomcu("0461000", "3", "mentor", "1", "115.68.14.22");'></li>
+                        <li><input type="button" value="2번" class="button big special" onclick='javascript:calltomcu("0462000", "3", "mentor", "1", "115.68.14.22");'></li>
+                        <li><input type="button" value="3번" class="button big special" onclick='javascript:calltomcu("0463000", "3", "mentor", "1", "115.68.14.22");'></li>
+			<br> <br>
+                        <li><input type="button" value="테스트" class="button big special" onclick='javascript:calltomcu("0464000", "3", "mentor", "1", "115.68.14.22");'></li>
+                        <li><input type="button" value="NAVER" class="button big special" onclick="location.href='http://www.naver.com'"></li>
+                        <!--
+			<br> <br>
+                        <li><input type="button" value="9번" class="button big special" onclick='javascript:calltomcu("0349000", "3", "mentor", "1", "115.68.14.58");'></li>
+                        <li><input type="button" value="10번" class="button big special" onclick='javascript:calltomcu("0340010", "3", "mentor", "1", "115.68.14.58");'></li>
+                        <li><input type="button" value="테스트" class="button big special" onclick='javascript:calltomcu("0340011", "3", "mentor", "1", "115.68.14.58");'></li>
+                        <li><input type="button" value="SuperMentor" class="button big special" onclick="location.href='http://www.supermentor.co.kr/launcher/index.php'"></li>
+                        -->
+			<!--
+                        <li><input type="button" value="SuperMentor" class="button big special" onclick="location.href='http://www.supermentor.co.kr'"></li>
+			-->
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1">
+				<header class="major">
+					<h2>Mentor BOX 화상 교육 서비스</h2>
+					<p>Mentor BOX 서비스에 오신것을 환영합니다. 연결 화면을 선택하세요.</p>
+				</header>
+								
+			
+                        <!--
+				<div class="container">
+				<div class="row">
+					<div class="4u">
+						<section class="special box"> <span class="fa fa-cloud-download fa-3x"></span>
+							<p class="box_text"><br>사용자를 추가하거나 정보를 바꿀 수 있습니다. 관리자만 이 기능을 사용할 수 있습니다.</p>
+						</section>
+					</div>
+					<div class="4u">
+						<section class="special box"><span class="fa fa-cogs fa-3x"></span>
+							<p class="box_text"><br>단말의 세팅값과 환경을 바꿀 수 있습니다. 네트워크, 화면, 코덱 정보등을 설정합니다.</p>
+						</section>
+					</div>
+					<div class="4u">
+						<section class="special box"> <span class="fa fa-users fa-3x"></span>
+							<p class="box_text"><br>강의 리스트에서 화상회의를 연결할 수 있습니다. 해당 강의 리스트를 검색하거나 확인하세요. </p>
+						</section>
+					</div>
+				</div>
+				</div>
+                        -->
+			</section>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; WOOKSUNGMEDIA All rights reserved.</li>
+						<li><a href="http://wooksungmedia.com">Wooksungmedia.com</a></li>
+						<!--
+						<li>Telephone: 82-42-931-5025</li>
+						-->
+						<li><input type="button" value="로컬테스트" class="button small special" onclick='javascript:calltomcu("100", "2", "mentor", "1", "192.168.0.201");'></li>
+						<li><input type="button" value="Url설정" class="button small special" onclick='javascript:changeUrl();'></li>
+						<li><input type="button" value="웹페이지설정" class="button small special" onclick='javascript:webUrl();'></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

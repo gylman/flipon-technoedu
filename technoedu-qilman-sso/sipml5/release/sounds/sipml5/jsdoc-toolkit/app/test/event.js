@@ -1,0 +1,1 @@
+function CakeShop(){}CakeShop.prototype.icingReady=function(a){};function amHungry(a){};

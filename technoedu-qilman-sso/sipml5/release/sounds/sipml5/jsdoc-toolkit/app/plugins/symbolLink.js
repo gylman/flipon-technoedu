@@ -1,0 +1,1 @@
+JSDOC.PluginManager.registerPlugin("JSDOC.symbolLink",{onSymbolLink:function(a){}});

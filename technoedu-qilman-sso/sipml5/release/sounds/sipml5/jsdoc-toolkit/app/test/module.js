@@ -1,0 +1,1 @@
+myProject=myProject||{};myProject.myModule=(function(){var b="";var a=function(){};return{myPublicMethod:function(){}}})();

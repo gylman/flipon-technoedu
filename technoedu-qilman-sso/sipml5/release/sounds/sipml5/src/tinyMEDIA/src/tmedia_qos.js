@@ -1,0 +1,1 @@
+var tmedia_qos_status_e={CURR:0,DEST:1,CONF:3};var tmedia_qos_ptype_e={QOS:0};var tmedia_qos_stype_e={NONE:0,SEGMENTED:1,E2E:2};var tmedia_qos_strength_e={NONE:0,FAILURE:1,UNKNOWN:2,OPTIONAL:3,MANDATORY:4};var tmedia_qos_direction_e={NONE:0,SEND:(1<<1),RECV:(1<<2),SEND_RECV:(1<<1)|(1<<2)};

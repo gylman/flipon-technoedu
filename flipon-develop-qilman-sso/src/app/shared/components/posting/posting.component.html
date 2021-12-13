@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]='postData.title' placeholder="제목">
+<ckeditor *ngIf="isBrowser" [(ngModel)]='postData.content' [editor]="Editor" [config]='config'></ckeditor>
+<input type="file" id="attachment" (change)="handleAttachment($event.target.files)" accept="image/*,application/pdf">
+<ng-content></ng-content>
+<div class="buttons-on-right">
+  <button class="btn btn-primary" [disabled]='!(postData.title && postData.content) || disableCondition'
+    (click)='onSubmit(postData)'>{{submitText}}</button>
+  <button class="btn btn-warning-outline rightmost-button" (click)='onCancel()'>{{cancelText}}</button>
+</div>

@@ -1,0 +1,1 @@
+var __tmedia_defaults_e_media_type=tmedia_type_e.AUDIO_VIDEO;function tmedia_defaults_get_media_type(){return __tmedia_defaults_e_media_type};

@@ -1,0 +1,1 @@
+new function(){function a(b){}};

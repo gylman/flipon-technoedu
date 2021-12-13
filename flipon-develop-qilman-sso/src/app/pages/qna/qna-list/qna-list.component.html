@@ -1,0 +1,36 @@
+<h1 class="section-title"><span>Q&A</span> 1:1 문의하기</h1>
+<hr>
+<clr-tabs class="custom-tabs">
+  <clr-tab *ngFor="let category of categories">
+    <button clrTabLink (click)='setCategory(category)'>{{category}}</button>
+  </clr-tab>
+</clr-tabs>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th id='index'>번호</th>
+      <th id='title'>제목</th>
+      <th id='userId'>작성자</th>
+      <th id='date'>작성일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor='let qna of qnas; index as i'>
+      <tr (click)='moveDetail(qna.qnaId)'>
+        <td>{{i+1}}</td>
+        <td>{{qna.title.length > 15 ? (qna.title | slice:0:15) + ('...') : (qna.title)}}</td>
+        <td>{{qna.userName}}</td>
+        <td>{{qna.date | date: 'yyyy-MM-dd\nHH:mm'}}</td>
+      </tr>
+      <tr *ngIf='qna.answer' (click)='moveDetail(qna.qnaId)'>
+        <td>{{''}}</td>
+        <td>질문 주신 내용에 대한 답변입니다.</td>
+        <td>관리자</td>
+        <td>{{qna.date | date: 'yyyy-MM-dd\nHH:mm'}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<button class="btn btn-outline" (click)='movePost()'>작성하기</button>

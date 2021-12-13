@@ -1,0 +1,31 @@
+<h2 class="title">회원 현황</h2>
+<clr-datagrid (clrDgRefresh)="user.refresh($event)" [clrDgLoading]="user.executables.refresh.loading" [(clrDgSelected)]="user.selected">
+<!--  <clr-dg-action-bar>-->
+<!--    <div class="btn-group">-->
+<!--      <button type="button" class="btn btn-sm btn-secondary">-->
+<!--        <clr-icon shape="plus"></clr-icon> 승인-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </clr-dg-action-bar>-->
+  <clr-dg-column>회원</clr-dg-column>
+  <clr-dg-column>이메일</clr-dg-column>
+  <clr-dg-column>이름</clr-dg-column>
+  <clr-dg-column>전화번호</clr-dg-column>
+  <clr-dg-column>신청일</clr-dg-column>
+
+  <clr-dg-row *ngFor="let user of user.items" [clrDgItem]="user">
+    <clr-dg-cell>{{user.typeString}}</clr-dg-cell>
+    <clr-dg-cell>{{user.email}}</clr-dg-cell>
+    <clr-dg-cell>{{user.name}}</clr-dg-cell>
+    <clr-dg-cell>{{user.fullPhone}}</clr-dg-cell>
+    <clr-dg-cell>{{user.createdAt | date: 'yyyy.MM.dd HH:mm:ss'}}</clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer *ngIf="user.items">
+    <clr-dg-pagination #pagination [clrDgPageSize]="20" [clrDgTotalItems]="user.total">
+      <clr-dg-page-size [clrPageSizeOptions]="[20,50,100]"></clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      of {{pagination.totalItems}}.
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

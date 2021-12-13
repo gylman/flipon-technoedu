@@ -1,0 +1,1 @@
+function example(d,c){var f=d;var e=function(){};setNumber=function(){};alert("You have chosen: "+c)}function initPage(){var b=document.createElement&&document.getElementsByTagName;if(!b){return}var a=document.getElementById("writeroot")}var document=new Document(x,y);var getNumber=function(){};

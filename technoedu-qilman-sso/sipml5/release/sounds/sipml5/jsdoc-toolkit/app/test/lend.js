@@ -1,0 +1,1 @@
+var Person=Class.create({initialize:function(a){this.name=a},say:function(a){return this.name+": "+a}});sing:function(a){}getCount:function(){}notok:function(){};

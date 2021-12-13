@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+
+var output;
+
+ult=0;
+
+function myReturnPromise(){
+    return new Promise((res)=>{
+            setTimeout(()=>{
+                    console.log('wait 3 sec and return Promise');
+                    res();
+                    }, 3000)
+            })
+}
+
+async function myWait(x){
+    await myReturnPromise();
+    //myWaitPromise()->동시동작 되어버림
+    return new Promise((resolve)=>{
+            setTimeout(()=>{
+                    console.log('wait 3 sec more and return Promise');
+                    resolve();
+                    }, 3000)
+            });
+}
+
+async function test2(){
+    console.log('before Promise');
+    await myWait();
+    console.log('after Promise');
+}
+
+function init()
+{
+    output = document.getElementById("output");
+    testaSync();
+}
+
+function testaSync()
+{
+    test2();
+}
+
+
+window.addEventListener("load", init, false);
+
+</script>
+
+<h2>Async Test</h2>
+
+<div id="output"></div>
+

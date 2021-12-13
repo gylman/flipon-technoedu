@@ -1,0 +1,36 @@
+/****************************************************************************
+	FaceLink 멤버쉽
+****************************************************************************/
+#join { margin:0px auto; color:#646464; }
+#join img { display:block; margin:0px auto; }
+#join input[type=text],
+#join input[type=password] {
+	height:30px;
+	line-height:30px;
+	border:1px solid #d2d2d2;
+	color:#747474;
+}
+
+#join select {
+	height:34px;
+	line-height:34px;
+	border:1px solid #d2d2d2;
+	color:#747474;
+}
+
+#join .star { color:red; }
+
+/*********************************************************************************************************************************/
+/* 회원가입의 1. 약관동의, 2.기본정보, 3.정보입력, 4.가입완료 */
+#join_step { width:1100px; height:114px; margin-bottom:20px; }
+#join_step > li { float:left; width:275px; height:114px; background:url("../../images/step_off.png") 0 0 no-repeat; }
+
+#join_step > li.step2 { background-position:-275px 0; }
+#join_step > li.step3 { background-position:-550px 0; }
+#join_step > li.step4 { background-position:-825px 0; }
+
+#join_step > li.step1.selected { width:275px; background:url("../../images/step1_on.png") 0px 0 no-repeat; }
+#join_step > li.step2.selected { width:334px; margin-left:-59px; background:url("../../images/step2_on.png") 0px 0 no-repeat; }
+#join_step > li.step3.selected { width:336px; margin-left:-61px; background:url("../../images/step3_on.png") 0 0 no-repeat; }
+#join_step > li.step4.selected { width:334px; margin-left:-59px; background:url("../../images/step4_on.png") 0 0 no-repeat; }
+/*********************************************************************************************************************************/

@@ -1,0 +1,68 @@
+<div id="start">
+  <img id="main_img" src="/assets/images/main_img.svg">
+</div>
+<div class="max-global">
+  <div class="clr-row clr-justify-content-center" style="margin-top: 20px;">
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-6">
+      <div class="video_wrap">
+        <iframe id="introduce_video_1" src="https://www.youtube.com/embed/0pbN9pPe8LQ?rel=0&loop=1" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-6">
+      <div class="video_wrap">
+        <iframe id="introduce_video_2" src="https://www.youtube.com/embed/wZmiL96zkv0?rel=0&loop=1" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="clr-row clr-justify-content-center">
+    <h1 class="section-title clr-col-12 clr-col-sm-12 clr-col-md-12">플립온 대표 선생님</h1>
+    <div class="swiper-container mainTeachers">
+      <swiper fxFlex="auto" [config]="config">
+        <div *ngFor="let teacher of teachers;" class="swiper-slide">
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill style="text-align: center;">
+            <!-- TODO: Uncomment below line! Commented because it causes large debug output. -->
+            <!-- <img [src]="'/assets/images/teachers/'+teacher.name+'.png'"> -->
+            <div style="text-align: center;">
+              <div class="teacher_name">{{teacher.name + " 선생님"}}</div>
+              <div class="teacher_data">
+                {{teacher.school+ " " +teacher.major}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper>
+    </div>
+  </div>
+  <div>
+    <h1 class="section-title">학생 & 학부모 상담</h1>
+    <div class="clr-row clr-justify-content-center" style="margin-top: 20px;">
+      <div class="clr-col-xl-3 clr-col-md-4 clr-col-12">
+        <div class="card">
+          <div class="card-header">전화 상담</div>
+          <div class="card-block">02) 402-1764</div>
+        </div>
+      </div>
+      <div class="clr-col-xl-3 clr-col-md-4 clr-col-12">
+        <div class="card">
+          <div class="card-header">카카오톡 상담</div>
+          <div class="card-block">
+            <img src="/assets/images/kakao_qr_image.png">
+            <div id="guide_cs_kakao_id">
+              <h2>카카오톡 flipon365</h2>
+              <p>플립온 카카오톡 아이디<br>flipon365를 친구추가하시면<br>365일 자유로운 면담이 가능합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clr-col-xl-3 clr-col-md-4 clr-col-12">
+        <div class="card">
+          <div class="card-header">홈페이지 문의</div>
+          <div class="card-block">게시판 문의</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-faq></app-faq>
+</div>

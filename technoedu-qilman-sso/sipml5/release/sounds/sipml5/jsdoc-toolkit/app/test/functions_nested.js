@@ -1,0 +1,1 @@
+function Zop(){}Foo=function(b){Foo.prototype.methodOne=function(c){alert(c)};Foo.prototype.methodTwo=function(c){alert(c)};Bar=function(c){alert(c)};Zop.prototype.zap=function(c){alert(c)};function a(){}};

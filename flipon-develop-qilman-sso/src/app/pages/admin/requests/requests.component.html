@@ -1,0 +1,75 @@
+<clr-tabs>
+<!--  <clr-tab>-->
+<!--    <button clrTabLink>강의 요청</button>-->
+<!--    <ng-template [(clrIfActive)]="course.enabled" (clrIfActiveChange)="course.executables.refresh.loading = true">-->
+<!--      <clr-tab-content>-->
+<!--        <h2 class="title">강의 요청</h2>-->
+<!--        <clr-datagrid (clrDgRefresh)="course.refresh($event)" [clrDgLoading]="course.executables.refresh.loading" [(clrDgSelected)]="course.selected">-->
+<!--          <clr-dg-action-bar>-->
+<!--            <div class="btn-group">-->
+<!--              <button type="button" class="btn btn-sm btn-secondary" [clrLoading]="course.executables.approve.loading" [disabled]="!course.selected?.length" (click)="course.exec('approve')">-->
+<!--                <clr-icon shape="check"></clr-icon> 승인-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </clr-dg-action-bar>-->
+<!--          <clr-dg-column>학생</clr-dg-column>-->
+<!--          <clr-dg-column>선생님</clr-dg-column>-->
+<!--          <clr-dg-column>신청일</clr-dg-column>-->
+
+<!--          <clr-dg-row *ngFor="let course of course.items" [clrDgItem]="course">-->
+<!--            <clr-dg-cell>{{course.studentsName}}</clr-dg-cell>-->
+<!--            <clr-dg-cell>{{course.teacher.name}}</clr-dg-cell>-->
+<!--            <clr-dg-cell>{{course.createdAt | date: 'yyyy.MM.dd HH:mm:ss'}}</clr-dg-cell>-->
+<!--          </clr-dg-row>-->
+
+<!--          <clr-dg-footer *ngIf="course.items">-->
+<!--            <clr-dg-pagination #pagination [clrDgPageSize]="20" [clrDgTotalItems]="course.total">-->
+<!--              <clr-dg-page-size [clrPageSizeOptions]="[20,50,100]"></clr-dg-page-size>-->
+<!--              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}-->
+<!--              of {{pagination.totalItems}}.-->
+<!--            </clr-dg-pagination>-->
+<!--          </clr-dg-footer>-->
+<!--        </clr-datagrid>-->
+<!--      </clr-tab-content>-->
+<!--    </ng-template>-->
+<!--  </clr-tab>-->
+  <clr-tab>
+    <button clrTabLink>선생님 승인 요청</button>
+    <ng-template [(clrIfActive)]="teacher.enabled" (clrIfActiveChange)="teacher.executables.refresh.loading = true">
+      <clr-tab-content>
+        <h2 class="title">선생님 승인 요청</h2>
+        <clr-datagrid (clrDgRefresh)="teacher.refresh($event)" [clrDgLoading]="teacher.executables.refresh.loading" [(clrDgSelected)]="teacher.selected">
+          <clr-dg-action-bar>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-secondary" [clrLoading]="teacher.executables.approve.loading" [disabled]="!teacher.selected?.length" (click)="teacher.exec('approve')">
+                <clr-icon shape="check"></clr-icon> 승인
+              </button>
+            </div>
+          </clr-dg-action-bar>
+          <clr-dg-column>이름</clr-dg-column>
+          <clr-dg-column>학교/학과</clr-dg-column>
+          <clr-dg-column>전화번호</clr-dg-column>
+          <clr-dg-column>소개</clr-dg-column>
+          <clr-dg-column>가입일</clr-dg-column>
+          <!--        <clr-dg-column></clr-dg-column>-->
+
+          <clr-dg-row *ngFor="let teacher of teacher.items" [clrDgItem]="teacher">
+            <clr-dg-cell>{{teacher.name}}</clr-dg-cell>
+            <clr-dg-cell>{{teacher.profile.school.name}} {{teacher.profile.school.major}}</clr-dg-cell>
+            <clr-dg-cell>{{teacher.phone}}</clr-dg-cell>
+            <clr-dg-cell>{{teacher.profile.introduction}}</clr-dg-cell>
+            <clr-dg-cell>{{teacher.createdAt | date: 'yyyy.MM.dd HH:mm:ss'}}</clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer *ngIf="teacher.items">
+            <clr-dg-pagination #pagination [clrDgPageSize]="20" [clrDgTotalItems]="teacher.total">
+              <clr-dg-page-size [clrPageSizeOptions]="[20,50,100]"></clr-dg-page-size>
+              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+              of {{pagination.totalItems}}.
+            </clr-dg-pagination>
+          </clr-dg-footer>
+        </clr-datagrid>
+      </clr-tab-content>
+    </ng-template>
+  </clr-tab>
+</clr-tabs>

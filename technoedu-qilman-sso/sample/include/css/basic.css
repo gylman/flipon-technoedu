@@ -1,0 +1,43 @@
+
+/*@charset "euc-kr";*/
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+BODY {
+	width:100%;
+	margin:0px;
+	padding:0px;
+
+	FONT-FAMILY: 'Nanum Gothic', "나눔바른고딕", 굴림, 돋움, arial,tahoma,helvetica,verdana,geneva,arial; 
+	font-size: 10pt;
+	line-height:150%;
+	color:#2d2d2d;
+}
+
+div, ul, ol, li {
+	list-style: none;
+	padding:0px;
+	margin:0px;
+
+	box-sizing:border-box;		
+	/*width:100%;	/* 100% 값을 설정할 경우 margin, padding에 의해 가로 스크롤이 생긴다.*/
+}
+
+h1, h2, h3, h4, h5, h6 { margin:0px; padding:0px; }
+
+a:link, a:visited, a:hover, a:active {
+	TEXT-DECORATION: none;
+	color:#2d2d2d;
+}
+
+img { border:0px; }
+
+p { margin:0px; padding:0px; }
+
+input[type=radio], input[type=checkbox] { vertical-align:middle; }
+
+select,
+input[type=text],
+input[type=file],
+input[type=password] { border:1px solid #cdcdcd; }

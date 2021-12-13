@@ -1,0 +1,51 @@
+version: "3.9"
+services:
+
+  technoedu-mysql:
+    image: localhost:5000/technoedu-mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - technoedu
+
+  technoedu-php:
+    image: localhost:5000/technoedu-php
+    ports:
+      - "3000:80"
+    networks:
+      - technoedu
+      - sso
+    # depends_on:
+    #   - technoedu-mysql
+  
+
+  flipon-frontend:
+    image: localhost:5000/flipon-frontend
+    ports:
+      - "4000:80"
+    networks:
+      - flipon
+    # depends_on:
+    #   - flipon-api
+
+  flipon-api:
+    image: localhost:5000/flipon-api
+    ports:
+      - "4100:80"
+    networks:
+      - flipon
+      - flipon-backend
+      - sso
+
+  flipon-mongo:
+    image: localhost:5000/flipon-mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - flipon-backend
+
+networks:
+  technoedu:
+  flipon:
+  flipon-backend:
+  sso:
